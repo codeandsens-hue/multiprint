@@ -1,0 +1,376 @@
+.hero {
+  --theme-fade: 0.8s ease;
+  /* Navbar (76px) + top spacing + card = 90% of the screen height */
+  --hero-top: 24px;
+  --hero-h: max(440px, calc(90svh - 76px - var(--hero-top)));
+
+  padding: var(--hero-top) 0 40px;
+}
+
+.hero__card {
+  display: grid;
+  grid-template-columns: 853fr 555fr;
+  min-height: var(--hero-h);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Left: yellow panel with text */
+.hero__content {
+  --ink: #ffffff;
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(32px, 6vh, 64px) clamp(28px, 4vw, 56px);
+  color: var(--ink);
+  background: var(--slide-bg);
+  transition: background-color var(--theme-fade);
+}
+
+.hero__slide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero__shapes {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--slide-ring);
+}
+
+.hero__ring {
+  transition:
+    stroke var(--theme-fade),
+    transform 1.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.hero__title {
+  white-space: nowrap;
+  font-size: clamp(1.75rem, min(4.4vw, 7vh), 4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.hero__text {
+  max-width: 34rem;
+  margin-top: clamp(12px, 2.2vh, 20px);
+  font-size: clamp(1rem, min(1.25vw, 2vh), 1.125rem);
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* Spec checklist, two columns */
+.hero__features {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px 32px;
+  margin: clamp(20px, 3.5vh, 32px) 0 0;
+  padding: clamp(16px, 3vh, 24px) 0 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.hero__features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.hero__features svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  padding: 3px;
+  fill: none;
+  stroke: var(--slide-ring);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 28px;
+  margin-top: clamp(24px, 4.5vh, 40px);
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Primary: solid button, colours set per slide */
+.hero__btn--primary {
+  padding: 13px 24px;
+  color: var(--slide-btn-fg);
+  background: var(--slide-btn-bg);
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.hero__btn--primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.25);
+}
+
+.hero__btn--primary svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.hero__btn--primary:hover svg {
+  transform: translateX(4px);
+}
+
+/* Secondary: underlined text link, underline slides away on hover */
+.hero__btn--link {
+  padding: 4px 0;
+  color: var(--ink);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+}
+
+.hero__btn--link:hover {
+  background-size: 0% 2px;
+  background-position: 100% 100%;
+}
+
+/* Right: soft-tinted panel with product image */
+.hero__media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 24px 24px 80px;
+  background: var(--slide-soft);
+  transition: background-color var(--theme-fade);
+}
+
+/* ---------- Carousel controls ---------- */
+
+.hero__controls {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  translate: -50% 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero__arrow {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  color: #0f172a;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero__arrow:hover {
+  color: #fff;
+  background: #0f172a;
+  border-color: #0f172a;
+}
+
+.hero__arrow svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero__pause {
+  margin-inline-start: 4px;
+}
+
+.hero__pause .is-play {
+  fill: currentColor;
+  stroke: none;
+}
+
+.hero__dots {
+  display: flex;
+  gap: 6px;
+}
+
+.hero__dot {
+  position: relative;
+  width: 28px;
+  height: 4px;
+  padding: 0;
+  background: rgba(15, 23, 42, 0.15);
+  border: 0;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: width 0.4s ease;
+}
+
+/* Bigger hit area without changing the look */
+.hero__dot::before {
+  content: '';
+  position: absolute;
+  inset: -12px -2px;
+}
+
+.hero__dot.is-active {
+  width: 48px;
+}
+
+.hero__dot-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--slide-ring);
+  transform-origin: left;
+  animation: dot-progress var(--slide-duration) linear forwards;
+}
+
+.hero__card.is-paused .hero__dot-fill {
+  animation-play-state: paused;
+}
+
+@keyframes dot-progress {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.hero__media img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: calc(var(--hero-h) * 0.74);
+  object-fit: contain;
+}
+
+/* ---------- Intro animation (plays once on load) ---------- */
+
+.hero {
+  --intro-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero__ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ring-in 1.3s var(--intro-ease) backwards;
+}
+
+.hero__ring + .hero__ring {
+  animation-delay: 0.1s;
+}
+
+.hero__title {
+  animation: fade-up 0.8s var(--intro-ease) 0.15s backwards;
+}
+
+.hero__text {
+  animation: fade-up 0.8s var(--intro-ease) 0.25s backwards;
+}
+
+.hero__features {
+  animation: fade-up 0.8s var(--intro-ease) 0.35s backwards;
+}
+
+.hero__actions {
+  animation: fade-up 0.8s var(--intro-ease) 0.45s backwards;
+}
+
+.hero__media img {
+  animation: fade-up 1s var(--intro-ease) 0.3s backwards;
+}
+
+@keyframes ring-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+/* Reduced motion: no animations and no autoplay (the timer is the fill animation) */
+@media (prefers-reduced-motion: reduce) {
+  .hero * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 24px 0 56px;
+  }
+
+  .hero__card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .hero__content {
+    padding: 48px 24px;
+  }
+
+  .hero__title {
+    font-size: clamp(1.5rem, 8vw, 2.25rem);
+  }
+
+  .hero__features {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__actions {
+    margin-top: 40px;
+  }
+
+  .hero__media {
+    padding: 32px 32px 88px;
+  }
+
+  .hero__media img {
+    height: 320px;
+  }
+}

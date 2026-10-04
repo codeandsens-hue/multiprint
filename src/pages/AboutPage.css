@@ -1,0 +1,143 @@
+/* ---------- "How we work" steps ---------- */
+
+.process {
+  padding: clamp(48px, 10vh, 112px) 0;
+  background: var(--muted-bg);
+  border-block: 1px solid var(--border);
+}
+
+.process__title {
+  font-size: clamp(1.5rem, 3.4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.process__subtitle {
+  max-width: 36rem;
+  margin-top: 12px;
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+.process__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: clamp(32px, 6vh, 56px) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.process__step {
+  position: relative;
+  padding: 28px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.process__step:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+/* Thin connector line between steps on wide screens */
+.process__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 51px;
+  inset-inline-end: -25px;
+  width: 26px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.process__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  border-radius: 12px;
+}
+
+.process__icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #0f172a;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.process__step h3 {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.process__step p {
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+  .process__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process__step::after {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .process__steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Scroll reveal (plays once) ---------- */
+
+.process__title,
+.process__subtitle,
+.process__step {
+  opacity: 0;
+  translate: 0 24px;
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.process__subtitle {
+  transition-delay: 0.08s;
+}
+
+.process__step {
+  transition-delay: calc(0.15s + var(--i) * 0.1s), calc(0.15s + var(--i) * 0.1s), 0s, 0s;
+}
+
+.process.is-visible .process__title,
+.process.is-visible .process__subtitle,
+.process.is-visible .process__step {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process__title,
+  .process__subtitle,
+  .process__step {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+}

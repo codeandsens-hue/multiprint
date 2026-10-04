@@ -1,0 +1,1013 @@
+{
+  "site": {
+    "company": {
+      "name": "Multiprint",
+      "description": "Labels, sleeves and flexible packaging printed with precision. Over 40 years of design and print expertise for brands that want to stand out on the shelf.",
+      "address": "123 Industrial Zone\nCity, Country",
+      "phone": "+000 00 00 00 00",
+      "email": "contact@multiprint.com",
+      "hours": "Sunday – Thursday, 8:00 – 17:00",
+      "mapQuery": "Multiprint",
+      "socials": [
+        {
+          "name": "Facebook",
+          "href": "https://facebook.com/"
+        },
+        {
+          "name": "Instagram",
+          "href": "https://instagram.com/"
+        },
+        {
+          "name": "LinkedIn",
+          "href": "https://linkedin.com/"
+        },
+        {
+          "name": "YouTube",
+          "href": "https://youtube.com/"
+        }
+      ]
+    },
+    "hero": {
+      "primaryLabel": "Explore Products",
+      "secondaryLabel": "Contact us"
+    },
+    "certification": {
+      "title": "Presentation of Our Official ISO Certification and Commitment to Excellence",
+      "items": [
+        {
+          "image": "/images/certifications/iso-9001.svg",
+          "title": "ISO 9001",
+          "description": "Quality management system ensuring consistent, reliable products and continuous improvement across every stage of production."
+        },
+        {
+          "image": "/images/certifications/iso-14001.svg",
+          "title": "ISO 14001",
+          "description": "Environmental management system reducing our footprint through responsible materials, inks and waste management."
+        },
+        {
+          "image": "/images/certifications/iso-22000.svg",
+          "title": "ISO 22000",
+          "description": "Food safety management for packaging that comes into contact with food and beverages, from raw material to delivery."
+        }
+      ]
+    },
+    "about": {
+      "title": "Discovering Design & Print\nMastery Evolution",
+      "text": "At Multiprint, we tailor our services and schedules to meet each partner's specific needs, ensuring personalized and professional support.",
+      "stats": [
+        {
+          "value": 7,
+          "label": "Ready-to-use products"
+        },
+        {
+          "value": 40,
+          "label": "Years of experience"
+        }
+      ],
+      "image": "/images/about-placeholder.svg"
+    },
+    "latestProducts": {
+      "title": "Our latest products",
+      "subtitle": "Introducing Multiprint’s latest innovation – pushing boundaries and redefining print excellence."
+    },
+    "cta": {
+      "title": "Let’s Build Your Vision",
+      "text": "Reach out to us for expert guidance, collaborative design, and tailored solutions to shape your vision into reality.",
+      "image": "/images/cta-placeholder.svg"
+    },
+    "journey": {
+      "title": "Multiprint’s Journey to Printing Excellence",
+      "image": "/images/journey-placeholder.svg",
+      "points": [
+        {
+          "title": "Technical expertise",
+          "text": "Professional, passionate and experienced, with state-of-the-art equipment."
+        },
+        {
+          "title": "Quality of service",
+          "text": "Meeting agreed deadlines and high quality standards."
+        }
+      ]
+    },
+    "process": {
+      "title": "How we work",
+      "subtitle": "From the first conversation to delivery, one team follows your project at every step.",
+      "steps": [
+        {
+          "title": "Brief & advice",
+          "text": "We listen to your needs and recommend the right material, format and finish for your product."
+        },
+        {
+          "title": "Design & prepress",
+          "text": "Our team prepares or adapts your artwork and validates a proof with you before printing."
+        },
+        {
+          "title": "Printing",
+          "text": "Your labels are printed on state-of-the-art equipment, with strict quality control at every stage."
+        },
+        {
+          "title": "Finishing & delivery",
+          "text": "Cutting, rewinding and packing on reels, delivered on the agreed date, ready for your production line."
+        }
+      ]
+    },
+    "pages": {
+      "products": {
+        "title": "Our products",
+        "subtitle": "Labels, sleeves and flexible packaging printed with precision. Search our range or browse by category to find the right solution for your product."
+      },
+      "about": {
+        "title": "About Multiprint",
+        "subtitle": "For over 40 years, Multiprint has been designing and printing labels, sleeves and flexible packaging for brands that want to stand out on the shelf."
+      },
+      "contact": {
+        "title": "Let’s talk about your project",
+        "subtitle": "A question, a quote or an order? Our team will get back to you as soon as possible."
+      }
+    },
+    "i18n": {
+      "fr": {
+        "company": {
+          "description": "Étiquettes, sleeves et emballages souples imprimés avec précision. Plus de 40 ans d'expertise en design et impression pour les marques qui veulent se démarquer en rayon.",
+          "hours": "Dimanche – Jeudi, 8h00 – 17h00"
+        },
+        "hero": {
+          "primaryLabel": "Découvrir nos produits",
+          "secondaryLabel": "Nous contacter"
+        },
+        "certification": {
+          "title": "Présentation de notre certification ISO officielle et de notre engagement pour l'excellence",
+          "items": [
+            {
+              "description": "Système de management de la qualité garantissant des produits constants et fiables, et une amélioration continue à chaque étape de la production."
+            },
+            {
+              "description": "Système de management environnemental qui réduit notre empreinte grâce à des matières, des encres et une gestion des déchets responsables."
+            },
+            {
+              "description": "Management de la sécurité des aliments pour les emballages en contact avec les aliments et les boissons, de la matière première à la livraison."
+            }
+          ]
+        },
+        "about": {
+          "title": "Design et impression :\nl'évolution d'un savoir-faire",
+          "text": "Chez Multiprint, nous adaptons nos services et nos délais aux besoins spécifiques de chaque partenaire, pour un accompagnement personnalisé et professionnel.",
+          "stats": [
+            {
+              "label": "Produits prêts à l'emploi"
+            },
+            {
+              "label": "Années d'expérience"
+            }
+          ]
+        },
+        "latestProducts": {
+          "title": "Nos derniers produits",
+          "subtitle": "Découvrez la dernière innovation de Multiprint : repousser les limites et redéfinir l'excellence de l'impression."
+        },
+        "cta": {
+          "title": "Construisons votre vision",
+          "text": "Contactez-nous pour des conseils d'experts, une conception collaborative et des solutions sur mesure qui donnent vie à votre vision."
+        },
+        "journey": {
+          "title": "Le parcours de Multiprint vers l'excellence de l'impression",
+          "points": [
+            {
+              "title": "Expertise technique",
+              "text": "Professionnels, passionnés et expérimentés, avec des équipements de pointe."
+            },
+            {
+              "title": "Qualité de service",
+              "text": "Respect des délais convenus et des standards de qualité élevés."
+            }
+          ]
+        },
+        "process": {
+          "title": "Notre méthode",
+          "subtitle": "Du premier échange à la livraison, une seule équipe suit votre projet à chaque étape.",
+          "steps": [
+            {
+              "title": "Brief et conseil",
+              "text": "Nous écoutons vos besoins et recommandons la matière, le format et la finition adaptés à votre produit."
+            },
+            {
+              "title": "Design et prépresse",
+              "text": "Notre équipe prépare ou adapte vos fichiers et valide une épreuve avec vous avant l'impression."
+            },
+            {
+              "title": "Impression",
+              "text": "Vos étiquettes sont imprimées sur des équipements de pointe, avec un contrôle qualité rigoureux à chaque étape."
+            },
+            {
+              "title": "Finition et livraison",
+              "text": "Découpe, rebobinage et conditionnement en bobines, livrés à la date convenue, prêts pour votre ligne de production."
+            }
+          ]
+        },
+        "pages": {
+          "products": {
+            "title": "Nos produits",
+            "subtitle": "Étiquettes, sleeves et emballages souples imprimés avec précision. Recherchez dans notre gamme ou parcourez les catégories pour trouver la solution adaptée à votre produit."
+          },
+          "about": {
+            "title": "À propos de Multiprint",
+            "subtitle": "Depuis plus de 40 ans, Multiprint conçoit et imprime des étiquettes, des sleeves et des emballages souples pour les marques qui veulent se démarquer en rayon."
+          },
+          "contact": {
+            "title": "Parlons de votre projet",
+            "subtitle": "Une question, un devis ou une commande ? Notre équipe vous répond dans les meilleurs délais."
+          }
+        }
+      },
+      "ar": {
+        "company": {
+          "description": "ملصقات وأغلفة انكماشية وتغليف مرن مطبوعة بدقة. أكثر من 40 عامًا من الخبرة في التصميم والطباعة للعلامات التجارية التي تريد التميّز على الرفوف.",
+          "hours": "الأحد – الخميس، 8:00 – 17:00"
+        },
+        "hero": {
+          "primaryLabel": "اكتشف منتجاتنا",
+          "secondaryLabel": "اتصل بنا"
+        },
+        "certification": {
+          "title": "تقديم شهادة الأيزو الرسمية لدينا والتزامنا بالتميّز",
+          "items": [
+            {
+              "description": "نظام إدارة الجودة الذي يضمن منتجات ثابتة وموثوقة وتحسينًا مستمرًا في كل مرحلة من مراحل الإنتاج."
+            },
+            {
+              "description": "نظام الإدارة البيئية الذي يقلّل من بصمتنا البيئية من خلال مواد وأحبار وإدارة نفايات مسؤولة."
+            },
+            {
+              "description": "إدارة سلامة الأغذية للتغليف الذي يلامس الأغذية والمشروبات، من المادة الخام حتى التسليم."
+            }
+          ]
+        },
+        "about": {
+          "title": "التصميم والطباعة:\nتطوّر الإتقان",
+          "text": "في Multiprint، نكيّف خدماتنا ومواعيدنا لتلبية الاحتياجات الخاصة بكل شريك، لنضمن مرافقة شخصية واحترافية.",
+          "stats": [
+            {
+              "label": "منتجات جاهزة للاستخدام"
+            },
+            {
+              "label": "سنوات من الخبرة"
+            }
+          ]
+        },
+        "latestProducts": {
+          "title": "أحدث منتجاتنا",
+          "subtitle": "نقدّم لكم أحدث ابتكارات Multiprint: نتخطّى الحدود ونعيد تعريف التميّز في الطباعة."
+        },
+        "cta": {
+          "title": "لنبنِ رؤيتك معًا",
+          "text": "تواصل معنا للحصول على استشارة الخبراء وتصميم تشاركي وحلول مصمّمة خصيصًا لتحويل رؤيتك إلى واقع."
+        },
+        "journey": {
+          "title": "مسيرة Multiprint نحو التميّز في الطباعة",
+          "points": [
+            {
+              "title": "الخبرة التقنية",
+              "text": "فريق محترف وشغوف وذو خبرة، مزوّد بأحدث المعدات."
+            },
+            {
+              "title": "جودة الخدمة",
+              "text": "الالتزام بالمواعيد المتفق عليها ومعايير الجودة العالية."
+            }
+          ]
+        },
+        "process": {
+          "title": "كيف نعمل",
+          "subtitle": "من أول محادثة حتى التسليم، فريق واحد يتابع مشروعك في كل مرحلة.",
+          "steps": [
+            {
+              "title": "الاستماع والاستشارة",
+              "text": "نستمع إلى احتياجاتك ونوصي بالمادة والمقاس والتشطيب المناسبين لمنتجك."
+            },
+            {
+              "title": "التصميم وما قبل الطباعة",
+              "text": "يُعدّ فريقنا ملفاتك أو يكيّفها ويعتمد معك نموذجًا تجريبيًا قبل الطباعة."
+            },
+            {
+              "title": "الطباعة",
+              "text": "تُطبع ملصقاتك على أحدث المعدات مع رقابة صارمة على الجودة في كل مرحلة."
+            },
+            {
+              "title": "التشطيب والتسليم",
+              "text": "القصّ وإعادة اللفّ والتعبئة في بكرات، وتسليمها في الموعد المتفق عليه جاهزة لخط إنتاجك."
+            }
+          ]
+        },
+        "pages": {
+          "products": {
+            "title": "منتجاتنا",
+            "subtitle": "ملصقات وأغلفة انكماشية وتغليف مرن مطبوعة بدقة. ابحث في مجموعتنا أو تصفّح الفئات لتجد الحل المناسب لمنتجك."
+          },
+          "about": {
+            "title": "عن Multiprint",
+            "subtitle": "منذ أكثر من 40 عامًا، تصمّم Multiprint وتطبع الملصقات والأغلفة الانكماشية والتغليف المرن للعلامات التجارية التي تريد التميّز على الرفوف."
+          },
+          "contact": {
+            "title": "لنتحدث عن مشروعك",
+            "subtitle": "سؤال أو عرض سعر أو طلب؟ سيرد عليك فريقنا في أقرب وقت ممكن."
+          }
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": "labels",
+      "label": "Labels",
+      "i18n": {
+        "fr": {
+          "label": "Étiquettes"
+        },
+        "ar": {
+          "label": "الملصقات"
+        }
+      }
+    },
+    {
+      "id": "sleeves",
+      "label": "Sleeves",
+      "i18n": {
+        "fr": {
+          "label": "Sleeves"
+        },
+        "ar": {
+          "label": "الأغلفة الانكماشية"
+        }
+      }
+    },
+    {
+      "id": "flexible",
+      "label": "Flexible packaging",
+      "i18n": {
+        "fr": {
+          "label": "Emballages souples"
+        },
+        "ar": {
+          "label": "التغليف المرن"
+        }
+      }
+    }
+  ],
+  "products": [
+    {
+      "id": "etiquette-entourante",
+      "category": "labels",
+      "featured": true,
+      "eyebrow": "PET labels",
+      "title": "Wrap-around label",
+      "text": "Clear or white film, mono or multi-layer, for PET bottles. Resists moisture, low temperatures and stretching.",
+      "description": [
+        "Clear or white mono or multi-layer film for PET bottles. Resists moisture, low temperatures and stretching.",
+        "Flexographic printing in up to 8 colours with UV protection. High-gloss printing available. Supplied on reels."
+      ],
+      "features": [
+        "Flexo printing in up to 8 colours",
+        "UV protection",
+        "High-gloss printing",
+        "Supplied on reels"
+      ],
+      "specs": [
+        {
+          "label": "Material",
+          "value": "Clear or white film"
+        },
+        {
+          "label": "Structure",
+          "value": "Mono or multi-layer"
+        },
+        {
+          "label": "Printing",
+          "value": "Flexography, up to 8 colours"
+        },
+        {
+          "label": "Finish",
+          "value": "UV protection, optional high gloss"
+        },
+        {
+          "label": "Packaging",
+          "value": "Reels"
+        }
+      ],
+      "image": {
+        "src": "/images/hero-bottle.png",
+        "alt": "PET bottle with a Multiprint wrap-around label"
+      },
+      "gallery": [
+        {
+          "src": "/images/gallery/roll-placeholder.svg",
+          "alt": "Roll of labels (illustration)"
+        },
+        {
+          "src": "/images/gallery/closeup-placeholder.svg",
+          "alt": "Close-up of a printed label (illustration)"
+        }
+      ],
+      "i18n": {
+        "fr": {
+          "eyebrow": "Étiquettes PET",
+          "title": "Étiquette entourante",
+          "text": "Film transparent ou blanc, en mono ou multi-structures, pour bouteilles PET. Résiste à l'humidité, aux basses températures et à l'étirement.",
+          "description": [
+            "Film transparent ou blanc en mono ou multi-structures pour bouteilles PET. Résiste à l'humidité, aux basses températures et à l'étirement.",
+            "Impression en flexographie jusqu'à 8 couleurs avec protection UV. Possibilité d'impression en haute brillance. Livrables en bobines."
+          ],
+          "features": [
+            "Flexographie jusqu'à 8 couleurs",
+            "Protection UV",
+            "Impression haute brillance",
+            "Livrable en bobines"
+          ],
+          "image": {
+            "alt": "Bouteille PET avec une étiquette entourante Multiprint"
+          },
+          "gallery": [
+            {
+              "alt": "Bobine d’étiquettes (illustration)"
+            },
+            {
+              "alt": "Gros plan sur une étiquette imprimée (illustration)"
+            }
+          ],
+          "specs": [
+            {
+              "label": "Support",
+              "value": "Film transparent ou blanc"
+            },
+            {
+              "label": "Structure",
+              "value": "Mono ou multi-structures"
+            },
+            {
+              "label": "Impression",
+              "value": "Flexographie, jusqu'à 8 couleurs"
+            },
+            {
+              "label": "Finition",
+              "value": "Protection UV, haute brillance en option"
+            },
+            {
+              "label": "Conditionnement",
+              "value": "Bobines"
+            }
+          ]
+        },
+        "ar": {
+          "eyebrow": "ملصقات PET",
+          "title": "ملصق ملتف",
+          "text": "فيلم شفاف أو أبيض أحادي أو متعدد الطبقات لعبوات PET. مقاوم للرطوبة ودرجات الحرارة المنخفضة والتمدد.",
+          "description": [
+            "فيلم شفاف أو أبيض أحادي أو متعدد الطبقات لعبوات PET. مقاوم للرطوبة ودرجات الحرارة المنخفضة والتمدد.",
+            "طباعة فلكسوغرافية حتى 8 ألوان مع حماية من الأشعة فوق البنفسجية. إمكانية الطباعة بلمعان عالٍ. يُسلَّم في بكرات."
+          ],
+          "features": [
+            "طباعة فلكسو حتى 8 ألوان",
+            "حماية من الأشعة فوق البنفسجية",
+            "طباعة بلمعان عالٍ",
+            "يُسلَّم في بكرات"
+          ],
+          "image": {
+            "alt": "عبوة PET بملصق ملتف من Multiprint"
+          },
+          "specs": [
+            {
+              "label": "المادة",
+              "value": "فيلم شفاف أو أبيض"
+            },
+            {
+              "label": "البنية",
+              "value": "أحادية أو متعددة الطبقات"
+            },
+            {
+              "label": "الطباعة",
+              "value": "فلكسوغرافيا، حتى 8 ألوان"
+            },
+            {
+              "label": "التشطيب",
+              "value": "حماية من الأشعة فوق البنفسجية، لمعان عالٍ اختياري"
+            },
+            {
+              "label": "التعبئة",
+              "value": "بكرات"
+            }
+          ],
+          "gallery": [
+            {
+              "alt": "بكرة ملصقات (رسم توضيحي)"
+            },
+            {
+              "alt": "صورة مقرّبة لملصق مطبوع (رسم توضيحي)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sleeve-retractable",
+      "category": "sleeves",
+      "featured": true,
+      "eyebrow": "360° decoration",
+      "title": "Shrink sleeve",
+      "text": "Printed heat-shrink sleeve that hugs the shape of your bottles and containers for full 360° decoration.",
+      "description": [
+        "Printed heat-shrink sleeve that hugs the shape of your bottles and containers for full 360° decoration."
+      ],
+      "features": [
+        "360° decoration",
+        "Complex shapes",
+        "Matte or gloss finish",
+        "Supplied on reels"
+      ],
+      "specs": [],
+      "image": {
+        "src": "/images/hero-bottle.png",
+        "alt": "Bottle dressed in a shrink sleeve"
+      },
+      "gallery": [
+        {
+          "src": "/images/gallery/roll-placeholder.svg",
+          "alt": "Roll of labels (illustration)"
+        },
+        {
+          "src": "/images/gallery/closeup-placeholder.svg",
+          "alt": "Close-up of a printed label (illustration)"
+        }
+      ],
+      "i18n": {
+        "fr": {
+          "eyebrow": "Habillage 360°",
+          "title": "Sleeve rétractable",
+          "text": "Manchon thermo-rétractable imprimé qui épouse parfaitement la forme de vos bouteilles et contenants, pour un habillage à 360°.",
+          "description": [
+            "Manchon thermo-rétractable imprimé qui épouse parfaitement la forme de vos bouteilles et contenants, pour un habillage à 360°."
+          ],
+          "features": [
+            "Décor sur 360°",
+            "Formes complexes",
+            "Finition mate ou brillante",
+            "Livrable en bobines"
+          ],
+          "image": {
+            "alt": "Bouteille habillée d’un sleeve rétractable"
+          },
+          "gallery": [
+            {
+              "alt": "Bobine d’étiquettes (illustration)"
+            },
+            {
+              "alt": "Gros plan sur une étiquette imprimée (illustration)"
+            }
+          ]
+        },
+        "ar": {
+          "eyebrow": "تزيين 360°",
+          "title": "غلاف انكماشي",
+          "text": "غلاف مطبوع ينكمش بالحرارة ليلتصق تمامًا بشكل عبواتك وحاوياتك لتزيين كامل بزاوية 360°.",
+          "description": [
+            "غلاف مطبوع ينكمش بالحرارة ليلتصق تمامًا بشكل عبواتك وحاوياتك لتزيين كامل بزاوية 360°."
+          ],
+          "features": [
+            "تزيين بزاوية 360°",
+            "أشكال معقدة",
+            "تشطيب مطفي أو لامع",
+            "يُسلَّم في بكرات"
+          ],
+          "image": {
+            "alt": "عبوة مغلّفة بغلاف انكماشي"
+          },
+          "gallery": [
+            {
+              "alt": "بكرة ملصقات (رسم توضيحي)"
+            },
+            {
+              "alt": "صورة مقرّبة لملصق مطبوع (رسم توضيحي)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "etiquette-adhesive",
+      "category": "labels",
+      "featured": true,
+      "eyebrow": "Self-adhesive",
+      "title": "Self-adhesive label",
+      "text": "Self-adhesive labels on paper or film, suited to all your packaging: food, cosmetics, industry.",
+      "description": [
+        "Self-adhesive labels on paper or film, suited to all your packaging: food, cosmetics, industry."
+      ],
+      "features": [
+        "Paper or film",
+        "Custom die-cut",
+        "Spot varnish",
+        "Supplied on rolls"
+      ],
+      "specs": [],
+      "image": {
+        "src": "/images/hero-bottle.png",
+        "alt": "Product with a self-adhesive label"
+      },
+      "gallery": [
+        {
+          "src": "/images/gallery/roll-placeholder.svg",
+          "alt": "Roll of labels (illustration)"
+        },
+        {
+          "src": "/images/gallery/closeup-placeholder.svg",
+          "alt": "Close-up of a printed label (illustration)"
+        }
+      ],
+      "i18n": {
+        "fr": {
+          "eyebrow": "Autocollants",
+          "title": "Étiquette adhésive",
+          "text": "Étiquettes autocollantes sur papier ou film, adaptées à tous vos emballages : alimentaire, cosmétique, industrie.",
+          "description": [
+            "Étiquettes autocollantes sur papier ou film, adaptées à tous vos emballages : alimentaire, cosmétique, industrie."
+          ],
+          "features": [
+            "Papier ou film",
+            "Découpe sur mesure",
+            "Vernis sélectif",
+            "Livrable en rouleaux"
+          ],
+          "image": {
+            "alt": "Produit avec une étiquette adhésive"
+          },
+          "gallery": [
+            {
+              "alt": "Bobine d’étiquettes (illustration)"
+            },
+            {
+              "alt": "Gros plan sur une étiquette imprimée (illustration)"
+            }
+          ]
+        },
+        "ar": {
+          "eyebrow": "ملصقات لاصقة",
+          "title": "ملصق لاصق",
+          "text": "ملصقات ذاتية اللصق على الورق أو الفيلم، مناسبة لجميع عبواتك: الأغذية ومستحضرات التجميل والصناعة.",
+          "description": [
+            "ملصقات ذاتية اللصق على الورق أو الفيلم، مناسبة لجميع عبواتك: الأغذية ومستحضرات التجميل والصناعة."
+          ],
+          "features": [
+            "ورق أو فيلم",
+            "قصّ حسب الطلب",
+            "ورنيش انتقائي",
+            "يُسلَّم في لفائف"
+          ],
+          "image": {
+            "alt": "منتج بملصق لاصق"
+          },
+          "gallery": [
+            {
+              "alt": "بكرة ملصقات (رسم توضيحي)"
+            },
+            {
+              "alt": "صورة مقرّبة لملصق مطبوع (رسم توضيحي)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "emballage-flexible",
+      "category": "flexible",
+      "featured": true,
+      "eyebrow": "Flexible packaging",
+      "title": "Flexible packaging",
+      "text": "Printed laminated films for sachets, pouches and flexible packaging, with a barrier suited to your product.",
+      "description": [
+        "Printed laminated films for sachets, pouches and flexible packaging, with a barrier suited to your product."
+      ],
+      "features": [
+        "Multi-layer films",
+        "Custom barrier",
+        "Up to 8 colours",
+        "Supplied on reels"
+      ],
+      "specs": [],
+      "image": {
+        "src": "/images/hero-bottle.png",
+        "alt": "Printed flexible packaging"
+      },
+      "gallery": [
+        {
+          "src": "/images/gallery/roll-placeholder.svg",
+          "alt": "Roll of labels (illustration)"
+        },
+        {
+          "src": "/images/gallery/closeup-placeholder.svg",
+          "alt": "Close-up of a printed label (illustration)"
+        }
+      ],
+      "i18n": {
+        "fr": {
+          "eyebrow": "Emballage souple",
+          "title": "Emballage flexible",
+          "text": "Films complexes imprimés pour sachets, pochettes et emballages souples, avec une barrière adaptée à votre produit.",
+          "description": [
+            "Films complexes imprimés pour sachets, pochettes et emballages souples, avec une barrière adaptée à votre produit."
+          ],
+          "features": [
+            "Films multicouches",
+            "Barrière sur mesure",
+            "Jusqu'à 8 couleurs",
+            "Livrable en bobines"
+          ],
+          "image": {
+            "alt": "Emballage flexible imprimé"
+          },
+          "gallery": [
+            {
+              "alt": "Bobine d’étiquettes (illustration)"
+            },
+            {
+              "alt": "Gros plan sur une étiquette imprimée (illustration)"
+            }
+          ]
+        },
+        "ar": {
+          "eyebrow": "تغليف مرن",
+          "title": "تغليف مرن",
+          "text": "أفلام مركّبة مطبوعة للأكياس والجيوب والتغليف المرن، مع حاجز مناسب لمنتجك.",
+          "description": [
+            "أفلام مركّبة مطبوعة للأكياس والجيوب والتغليف المرن، مع حاجز مناسب لمنتجك."
+          ],
+          "features": [
+            "أفلام متعددة الطبقات",
+            "حاجز حسب الطلب",
+            "حتى 8 ألوان",
+            "يُسلَّم في بكرات"
+          ],
+          "image": {
+            "alt": "تغليف مرن مطبوع"
+          },
+          "gallery": [
+            {
+              "alt": "بكرة ملصقات (رسم توضيحي)"
+            },
+            {
+              "alt": "صورة مقرّبة لملصق مطبوع (رسم توضيحي)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "etiquette-multi-pages",
+      "category": "labels",
+      "featured": false,
+      "eyebrow": "Booklet labels",
+      "title": "Multi-page label",
+      "text": "Fold-out label with several panels to display more information: instructions, legal notices, translations.",
+      "description": [
+        "Fold-out label with several panels to display more information: instructions, legal notices, translations."
+      ],
+      "features": [
+        "Up to 6 panels",
+        "Open and reseal",
+        "Double-sided printing",
+        "Supplied on rolls"
+      ],
+      "specs": [],
+      "image": {
+        "src": "/images/hero-bottle.png",
+        "alt": "Product with a multi-page label"
+      },
+      "gallery": [
+        {
+          "src": "/images/gallery/roll-placeholder.svg",
+          "alt": "Roll of labels (illustration)"
+        },
+        {
+          "src": "/images/gallery/closeup-placeholder.svg",
+          "alt": "Close-up of a printed label (illustration)"
+        }
+      ],
+      "i18n": {
+        "fr": {
+          "eyebrow": "Étiquettes livret",
+          "title": "Étiquette multi-pages",
+          "text": "Étiquette dépliable sur plusieurs volets pour afficher davantage d'informations : notices, mentions légales, traductions.",
+          "description": [
+            "Étiquette dépliable sur plusieurs volets pour afficher davantage d'informations : notices, mentions légales, traductions."
+          ],
+          "features": [
+            "Jusqu’à 6 volets",
+            "Ouverture et refermeture",
+            "Impression recto-verso",
+            "Livrable en rouleaux"
+          ],
+          "image": {
+            "alt": "Produit avec une étiquette multi-pages"
+          },
+          "gallery": [
+            {
+              "alt": "Bobine d’étiquettes (illustration)"
+            },
+            {
+              "alt": "Gros plan sur une étiquette imprimée (illustration)"
+            }
+          ]
+        },
+        "ar": {
+          "eyebrow": "ملصقات كتيّب",
+          "title": "ملصق متعدد الصفحات",
+          "text": "ملصق قابل للفتح بعدة صفحات لعرض المزيد من المعلومات: التعليمات والبيانات القانونية والترجمات.",
+          "description": [
+            "ملصق قابل للفتح بعدة صفحات لعرض المزيد من المعلومات: التعليمات والبيانات القانونية والترجمات."
+          ],
+          "features": [
+            "حتى 6 صفحات",
+            "فتح وإعادة إغلاق",
+            "طباعة على الوجهين",
+            "يُسلَّم في لفائف"
+          ],
+          "image": {
+            "alt": "منتج بملصق متعدد الصفحات"
+          },
+          "gallery": [
+            {
+              "alt": "بكرة ملصقات (رسم توضيحي)"
+            },
+            {
+              "alt": "صورة مقرّبة لملصق مطبوع (رسم توضيحي)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sleeve-stretch",
+      "category": "sleeves",
+      "featured": false,
+      "eyebrow": "No glue, no heat",
+      "title": "Stretch sleeve",
+      "text": "Stretch sleeve applied cold, with no glue or shrinking, ideal for high volumes and recyclable containers.",
+      "description": [
+        "Stretch sleeve applied cold, with no glue or shrinking, ideal for high volumes and recyclable containers."
+      ],
+      "features": [
+        "Cold application",
+        "No glue",
+        "Easy to recycle",
+        "Supplied on reels"
+      ],
+      "specs": [],
+      "image": {
+        "src": "/images/hero-bottle.png",
+        "alt": "Bottle dressed in a stretch sleeve"
+      },
+      "gallery": [
+        {
+          "src": "/images/gallery/roll-placeholder.svg",
+          "alt": "Roll of labels (illustration)"
+        },
+        {
+          "src": "/images/gallery/closeup-placeholder.svg",
+          "alt": "Close-up of a printed label (illustration)"
+        }
+      ],
+      "i18n": {
+        "fr": {
+          "eyebrow": "Sans colle ni chaleur",
+          "title": "Sleeve stretch",
+          "text": "Manchon étirable posé à froid, sans colle ni rétraction, idéal pour les grands volumes et les contenants recyclables.",
+          "description": [
+            "Manchon étirable posé à froid, sans colle ni rétraction, idéal pour les grands volumes et les contenants recyclables."
+          ],
+          "features": [
+            "Pose à froid",
+            "Sans colle",
+            "Facile à recycler",
+            "Livrable en bobines"
+          ],
+          "image": {
+            "alt": "Bouteille habillée d’un sleeve stretch"
+          },
+          "gallery": [
+            {
+              "alt": "Bobine d’étiquettes (illustration)"
+            },
+            {
+              "alt": "Gros plan sur une étiquette imprimée (illustration)"
+            }
+          ]
+        },
+        "ar": {
+          "eyebrow": "بدون غراء أو حرارة",
+          "title": "غلاف مطاطي",
+          "text": "غلاف قابل للتمدد يُركَّب على البارد دون غراء أو انكماش، مثالي للكميات الكبيرة والعبوات القابلة لإعادة التدوير.",
+          "description": [
+            "غلاف قابل للتمدد يُركَّب على البارد دون غراء أو انكماش، مثالي للكميات الكبيرة والعبوات القابلة لإعادة التدوير."
+          ],
+          "features": [
+            "تركيب على البارد",
+            "بدون غراء",
+            "سهل إعادة التدوير",
+            "يُسلَّم في بكرات"
+          ],
+          "image": {
+            "alt": "عبوة مغلّفة بغلاف مطاطي"
+          },
+          "gallery": [
+            {
+              "alt": "بكرة ملصقات (رسم توضيحي)"
+            },
+            {
+              "alt": "صورة مقرّبة لملصق مطبوع (رسم توضيحي)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "film-opercule",
+      "category": "flexible",
+      "featured": false,
+      "eyebrow": "Lidding",
+      "title": "Lidding film",
+      "text": "Printed heat-sealable film to close pots, trays and cups, with easy opening and a barrier suited to your product.",
+      "description": [
+        "Printed heat-sealable film to close pots, trays and cups, with easy opening and a barrier suited to your product."
+      ],
+      "features": [
+        "Heat-sealable",
+        "Easy opening",
+        "Custom barrier",
+        "Supplied on reels"
+      ],
+      "specs": [],
+      "image": {
+        "src": "/images/hero-bottle.png",
+        "alt": "Pot sealed with a printed lidding film"
+      },
+      "gallery": [
+        {
+          "src": "/images/gallery/roll-placeholder.svg",
+          "alt": "Roll of labels (illustration)"
+        },
+        {
+          "src": "/images/gallery/closeup-placeholder.svg",
+          "alt": "Close-up of a printed label (illustration)"
+        }
+      ],
+      "i18n": {
+        "fr": {
+          "eyebrow": "Operculage",
+          "title": "Film opercule",
+          "text": "Film imprimé thermoscellable pour fermer pots, barquettes et gobelets, avec ouverture facile et barrière adaptée.",
+          "description": [
+            "Film imprimé thermoscellable pour fermer pots, barquettes et gobelets, avec ouverture facile et barrière adaptée."
+          ],
+          "features": [
+            "Thermoscellable",
+            "Ouverture facile",
+            "Barrière sur mesure",
+            "Livrable en bobines"
+          ],
+          "image": {
+            "alt": "Pot fermé par un film opercule imprimé"
+          },
+          "gallery": [
+            {
+              "alt": "Bobine d’étiquettes (illustration)"
+            },
+            {
+              "alt": "Gros plan sur une étiquette imprimée (illustration)"
+            }
+          ]
+        },
+        "ar": {
+          "eyebrow": "أغطية مختومة",
+          "title": "فيلم أغطية",
+          "text": "فيلم مطبوع قابل للختم الحراري لإغلاق العلب والصواني والأكواب، مع فتح سهل وحاجز مناسب لمنتجك.",
+          "description": [
+            "فيلم مطبوع قابل للختم الحراري لإغلاق العلب والصواني والأكواب، مع فتح سهل وحاجز مناسب لمنتجك."
+          ],
+          "features": [
+            "قابل للختم الحراري",
+            "فتح سهل",
+            "حاجز حسب الطلب",
+            "يُسلَّم في بكرات"
+          ],
+          "image": {
+            "alt": "علبة مغلقة بفيلم أغطية مطبوع"
+          },
+          "gallery": [
+            {
+              "alt": "بكرة ملصقات (رسم توضيحي)"
+            },
+            {
+              "alt": "صورة مقرّبة لملصق مطبوع (رسم توضيحي)"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

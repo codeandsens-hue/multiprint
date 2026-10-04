@@ -1,0 +1,154 @@
+/* Full-width banner with a background image and a dark overlay for readable text */
+.cta {
+  --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: 50vh;
+  margin: clamp(32px, 6vh, 64px) 0;
+  padding: clamp(56px, 10vh, 96px) 0;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+}
+
+/* Image layer (separate so it can zoom gently without moving the text) */
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: var(--cta-image) center / cover no-repeat;
+  transform: scale(1.08);
+  transition: transform 1.6s var(--reveal-ease);
+}
+
+.cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.75));
+}
+
+.cta__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta__title {
+  font-size: clamp(1.75rem, 4.4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.cta__text {
+  max-width: 40rem;
+  margin-top: 16px;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: clamp(24px, 4vh, 36px);
+}
+
+.cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--radius);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cta__btn--primary {
+  color: #0f172a;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.cta__btn--primary:hover {
+  transform: translateY(-2px);
+  background: var(--accent-hover);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.cta__btn--primary svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.cta__btn--primary:hover svg {
+  transform: translateX(4px);
+}
+
+.cta__btn--outline {
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.cta__btn--outline:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Scroll reveal (plays once) ---------- */
+
+.cta__content > * {
+  opacity: 0;
+  translate: 0 24px;
+  transition:
+    opacity 0.9s var(--reveal-ease),
+    translate 0.9s var(--reveal-ease);
+}
+
+.cta__text {
+  transition-delay: 0.1s;
+}
+
+.cta__actions {
+  transition-delay: 0.2s;
+}
+
+.cta.is-visible::before {
+  transform: scale(1);
+}
+
+.cta.is-visible .cta__content > * {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta::before,
+  .cta__content > * {
+    opacity: 1;
+    translate: none;
+    transform: none;
+    transition: none;
+  }
+}

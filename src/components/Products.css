@@ -1,0 +1,155 @@
+.products {
+  --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --card-w: clamp(260px, 24vw, 320px);
+  --card-gap: 24px;
+
+  padding: clamp(48px, 10vh, 112px) 0;
+  overflow: hidden;
+}
+
+/* ---------- Header ---------- */
+
+.products__title {
+  font-size: clamp(1.5rem, 3.4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.products__subtitle {
+  max-width: 40rem;
+  margin-top: 16px;
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+/* ---------- Marquee ---------- */
+
+.products__marquee {
+  margin-top: clamp(32px, 6vh, 56px);
+  /* Fade the cards out at both screen edges */
+  -webkit-mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.products__track {
+  display: flex;
+  gap: var(--card-gap);
+  width: max-content;
+  margin: 0;
+  padding: 8px 0 16px;
+  list-style: none;
+  /* ~7s per card keeps the speed constant whatever the number of products */
+  animation: marquee calc(var(--count) * 7s) linear infinite;
+}
+
+.products__marquee:hover .products__track {
+  animation-play-state: paused;
+}
+
+/* Slide by one full copy (cards + gaps) so the second copy lands exactly where the first began */
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-1 * var(--count) * (var(--card-w) + var(--card-gap))));
+  }
+}
+
+/* Cards in the marquee have a fixed width */
+.products__track > .product-card {
+  flex: none;
+  width: var(--card-w);
+}
+
+/* ---------- "View all" link ---------- */
+
+.products__footer {
+  margin-top: clamp(24px, 4vh, 40px);
+  text-align: center;
+}
+
+.products__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 24px;
+  font-weight: 500;
+  color: #fff;
+  background: #0f172a;
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.products__all:hover {
+  transform: translateY(-2px);
+  background: #1e293b;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.2);
+}
+
+.products__all svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.products__all:hover svg {
+  transform: translateX(4px);
+}
+
+/* ---------- Scroll reveal (plays once) ---------- */
+
+.products__header > *,
+.products__marquee,
+.products__footer {
+  opacity: 0;
+  translate: 0 28px;
+  transition:
+    opacity 0.9s var(--reveal-ease),
+    translate 0.9s var(--reveal-ease);
+}
+
+.products__subtitle {
+  transition-delay: 0.1s;
+}
+
+.products__marquee,
+.products__footer {
+  transition-delay: 0.2s;
+}
+
+.products.is-visible .products__header > *,
+.products.is-visible .products__marquee,
+.products.is-visible .products__footer {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Reduced motion: no auto-scroll — the row becomes a normal swipeable/scrollable list */
+@media (prefers-reduced-motion: reduce) {
+  .products__header > *,
+  .products__marquee,
+  .products__footer {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+
+  .products__marquee {
+    overflow-x: auto;
+    -webkit-mask: none;
+    mask: none;
+  }
+
+  .products__track {
+    animation: none;
+    padding-inline: var(--gutter);
+  }
+
+  .products__track > [aria-hidden='true'] {
+    display: none;
+  }
+}

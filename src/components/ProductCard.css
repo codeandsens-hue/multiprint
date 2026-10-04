@@ -1,0 +1,67 @@
+/* White tile with the product (thin border so it stands out on the white page), then category and title */
+.product-card {
+  --card-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+}
+
+.product-card__link {
+  display: block;
+  border-radius: 16px;
+}
+
+.product-card__link:focus-visible {
+  outline-offset: 4px;
+}
+
+/* The bottle is sized from the tile width (container units), so the card works at any width */
+.product-card__media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  container-type: inline-size;
+  transition:
+    border-color 0.4s var(--card-ease),
+    box-shadow 0.4s var(--card-ease);
+}
+
+.product-card__media img {
+  height: 78cqi;
+  width: auto;
+  filter: drop-shadow(0 14px 16px rgba(15, 23, 42, 0.18));
+  transition: transform 0.6s var(--card-ease);
+}
+
+.product-card__link:hover .product-card__media,
+.product-card__link:focus-visible .product-card__media {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.product-card__link:hover .product-card__media img {
+  transform: translateY(-8px) scale(1.04);
+}
+
+.product-card__body {
+  padding: 18px 4px 0;
+}
+
+.product-card__category {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.product-card__title {
+  margin-top: 4px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}

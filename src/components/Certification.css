@@ -1,0 +1,100 @@
+.certification {
+  --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  padding: clamp(16px, 3vh, 32px) 0 clamp(64px, 12vh, 128px);
+}
+
+/* Big title spanning the full content width; scales with the screen */
+.certification__title {
+  font-size: clamp(1.5rem, 3.4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--text-h);
+}
+
+/* ---------- Cards ---------- */
+
+.certification__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: clamp(40px, 7vh, 72px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.certification__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(24px, 2.5vw, 36px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition:
+    transform 0.3s var(--reveal-ease),
+    box-shadow 0.3s var(--reveal-ease),
+    border-color 0.3s var(--reveal-ease);
+}
+
+.certification__card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.certification__image {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.certification__card-title {
+  margin-top: 24px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.certification__card-text {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .certification__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ---------- Scroll reveal (plays once) ---------- */
+
+.certification__title,
+.certification__card {
+  opacity: 0;
+  translate: 0 32px;
+  transition-property: opacity, translate, transform, box-shadow, border-color;
+  transition-duration: 0.9s, 0.9s, 0.3s, 0.3s, 0.3s;
+  transition-timing-function: var(--reveal-ease);
+}
+
+.certification__card {
+  transition-delay: calc(0.25s + var(--i) * 0.12s), calc(0.25s + var(--i) * 0.12s), 0s, 0s, 0s;
+}
+
+.certification.is-visible .certification__title,
+.certification.is-visible .certification__card {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .certification__title,
+  .certification__card {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+}

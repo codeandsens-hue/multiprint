@@ -1,111 +1,328 @@
+/* Design tokens — corporate base shared by every section of the site */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* Colours */
+  --text: #475569;
+  --text-h: #0f172a;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --muted-bg: #f8fafc;
+  --border: #e2e8f0;
+  --accent: #fabf02;
+  --accent-hover: #e0aa00;
+  --accent-bg: rgba(250, 191, 2, 0.12);
+  --on-accent: #0f172a;
+  --shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* Shape & layout */
+  --radius-sm: 4px;
+  --radius: 6px;
+  --container: 1248px; /* 1200px of content + 2 × 24px gutter */
+  --gutter: 24px;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
+  /* Type */
+  /* Outfit has no Arabic letters: those come from Noto Sans Arabic (downloaded only when used) */
+  --sans: 'Outfit Variable', 'Noto Sans Arabic Variable', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font: 16px/1.6 var(--sans);
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    --text: #94a3b8;
+    --text-h: #f1f5f9;
+    --bg: #0b1120;
+    --surface: #111827;
+    --muted-bg: #131c2e;
+    --border: #1e293b;
+    --accent-bg: rgba(250, 191, 2, 0.1);
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
   }
+}
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
 }
 
 h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
+h2,
+h3,
+h4 {
+  margin: 0;
   color: var(--text-h);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
 p {
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (max-width: 860px) {
+  :root {
+    --gutter: 16px;
+  }
+}
+
+/* Anchor links: smooth scroll, and don't hide section tops under the sticky navbar */
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 76px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+footer[id] {
+  scroll-margin-top: 76px;
+}
+
+/* Hidden visually but still read by screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Breadcrumb trail (products pages) */
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+
+.breadcrumb li + li::before {
+  content: '/';
+  margin-inline-end: 8px;
+  color: var(--border);
+}
+
+.breadcrumb a:hover {
   color: var(--text-h);
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.breadcrumb [aria-current='page'] {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+/* ---------- Buttons (shared) ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 13px 24px;
+  font: inherit;
+  font-weight: 500;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.btn--primary {
+  color: #0f172a;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  background: var(--accent-hover);
+  box-shadow: 0 10px 24px rgba(250, 191, 2, 0.35);
+}
+
+.btn--primary:hover svg {
+  transform: translateX(4px);
+}
+
+.btn--outline {
+  color: var(--text-h);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.btn--outline:hover {
+  border-color: var(--text-h);
+  background: var(--muted-bg);
+}
+
+/* ---------- Form fields (shared) ---------- */
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--text-h);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input[readonly] {
+  font-weight: 500;
+  background: var(--muted-bg);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+/* Form submit feedback (contact and order forms) */
+.form-status {
+  font-size: 0.875rem;
+}
+
+.form-status--saved {
+  color: #15803d;
+  font-weight: 500;
+}
+
+.form-status--error {
+  color: #b91c1c;
+  font-weight: 500;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: progress;
+  transform: none;
+}
+
+/* ---------- Right-to-left (Arabic) ---------- */
+
+/* Letter-spacing breaks the joins between Arabic letters */
+:lang(ar) * {
+  letter-spacing: normal !important;
+}
+
+/* Arrows point the other way; their hover nudge (transform) mirrors with them */
+[dir='rtl'] :is(.hero__btn--primary, .about__btn--primary, .cta__btn--primary, .products__all, .btn, .hero__arrow:not(.hero__pause)) svg {
+  scale: -1 1;
+}
+
+/* Hero progress bars fill from the right */
+[dir='rtl'] .hero__dot-fill {
+  transform-origin: right;
+}
+
+/* Product marquee scrolls the other way */
+[dir='rtl'] .products__track {
+  animation-name: marquee-rtl;
+}
+
+@keyframes marquee-rtl {
+  to {
+    transform: translateX(calc(var(--count) * (var(--card-w) + var(--card-gap))));
+  }
+}
+
+/* Sort menu arrow on the left */
+[dir='rtl'] .sort select {
+  background-position: left 10px center;
+}
+
+/* Phone filter drawer slides in from the right */
+@media (max-width: 900px) {
+  [dir='rtl'] .filters-panel {
+    inset: 0 0 0 auto;
+    border-radius: 16px 0 0 16px;
+    transform: translateX(105%);
+  }
+
+  [dir='rtl'] .filters-panel.is-open {
+    transform: none;
+  }
 }
