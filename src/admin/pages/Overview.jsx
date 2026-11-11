@@ -6,16 +6,16 @@ import { api } from '../api.js'
 const ranges = [7, 30, 90]
 
 const formatDay = (day, options = { day: 'numeric', month: 'short' }) =>
-  new Date(`${day}T00:00:00`).toLocaleDateString('en-GB', options)
+  new Date(`${day}T00:00:00`).toLocaleDateString('fr-FR', options)
 
 // "+12%" compared with the previous period of the same length
 function Delta({ now, before }) {
-  if (!before) return <span className="kpi__delta">No data for the previous period</span>
+  if (!before) return <span className="kpi__delta">Pas de données pour la période précédente</span>
   const change = Math.round(((now - before) / before) * 100)
   const tone = change > 0 ? 'up' : change < 0 ? 'down' : 'flat'
   return (
     <span className={`kpi__delta kpi__delta--${tone}`}>
-      {change > 0 ? '▲' : change < 0 ? '▼' : '■'} {Math.abs(change)}% vs previous period
+      {change > 0 ? '▲' : change < 0 ? '▼' : '■'} {Math.abs(change)}% vs période précédente
     </span>
   )
 }
@@ -60,9 +60,9 @@ function VisitorsChart({ daily }) {
                 <div className={`chart__tooltip${i > daily.length * 0.7 ? ' is-left' : ''}`} role="tooltip">
                   <strong>{formatDay(d.day, { weekday: 'short', day: 'numeric', month: 'short' })}</strong>
                   <span>
-                    {d.visitors} visitor{d.visitors === 1 ? '' : 's'}
+                    {d.visitors} visiteur{d.visitors > 1 ? 's' : ''}
                   </span>
-                  <span>{d.views} page views</span>
+                  <span>{d.views} pages vues</span>
                 </div>
               )}
             </div>
@@ -77,13 +77,13 @@ function VisitorsChart({ daily }) {
 
       {/* Same data as a table, for screen readers and exact numbers */}
       <details className="chart__table">
-        <summary>View as table</summary>
+        <summary>Afficher sous forme de tableau</summary>
         <table>
           <thead>
             <tr>
-              <th>Day</th>
-              <th>Visitors</th>
-              <th>Page views</th>
+              <th>Jour</th>
+              <th>Visiteurs</th>
+              <th>Pages vues</th>
             </tr>
           </thead>
           <tbody>
@@ -132,7 +132,9 @@ function BarList({ title, items, format = (label) => label, empty }) {
 }
 
 const pageName = (path) =>
-  ({ '/': 'Home', '/products': 'Products', '/about': 'About us', '/contact': 'Contact us' })[path] ?? path
+  ({ '/': 'Accueil', '/products': 'Produits', '/about': 'À propos', '/contact': 'Contact' })[path] ?? path
+
+const deviceName = { desktop: 'Ordinateur', mobile: 'Mobile', tablet: 'Tablette' }
 
 function Overview() {
   const { products, categories } = useCatalog()
@@ -154,13 +156,13 @@ function Overview() {
     <>
       <header className="admin-page__header">
         <div>
-          <h1>Overview</h1>
-          <p>Visitors, requests and catalogue at a glance.</p>
+          <h1>Vue d’ensemble</h1>
+          <p>Visiteurs, demandes et catalogue en un coup d’œil.</p>
         </div>
-        <div className="segmented" role="group" aria-label="Period">
+        <div className="segmented" role="group" aria-label="Période">
           {ranges.map((range) => (
             <button key={range} type="button" aria-pressed={days === range} onClick={() => setDays(range)}>
-              {range} days
+              {range} jours
             </button>
           ))}
         </div>
@@ -168,50 +170,50 @@ function Overview() {
 
       {error && <p className="admin-error">{error}</p>}
       {!stats ? (
-        !error && <p className="panel__empty">Loading statistics…</p>
+        !error && <p className="panel__empty">Chargement des statistiques…</p>
       ) : (
         <>
           <div className="kpis">
-            <Kpi label="Visitors" value={stats.visitors.toLocaleString()}>
+            <Kpi label="Visiteurs" value={stats.visitors.toLocaleString('fr-FR')}>
               <Delta now={stats.visitors} before={stats.previous.visitors} />
             </Kpi>
-            <Kpi label="Page views" value={stats.views.toLocaleString()}>
+            <Kpi label="Pages vues" value={stats.views.toLocaleString('fr-FR')}>
               <Delta now={stats.views} before={stats.previous.views} />
             </Kpi>
-            <Kpi label="Pages per visitor" value={stats.pagesPerVisitor}>
+            <Kpi label="Pages par visiteur" value={stats.pagesPerVisitor}>
               <span className="kpi__delta">
-                Today: {stats.today.visitors} visitor{stats.today.visitors === 1 ? '' : 's'}
+                Aujourd’hui : {stats.today.visitors} visiteur{stats.today.visitors > 1 ? 's' : ''}
               </span>
             </Kpi>
-            <Kpi label="Requests received" value={stats.requests.period}>
+            <Kpi label="Demandes reçues" value={stats.requests.period}>
               <Link to="/admin/requests" className="kpi__link">
-                {stats.requests.unread} unread · {stats.requests.orders} orders →
+                {stats.requests.unread} non lue(s) · {stats.requests.orders} commande(s) →
               </Link>
             </Kpi>
-            <Kpi label="Products" value={products.length}>
+            <Kpi label="Produits" value={products.length}>
               <Link to="/admin/products" className="kpi__link">
-                {categories.length} categories · {products.filter((p) => p.featured).length} featured →
+                {categories.length} catégories · {products.filter((p) => p.featured).length} en vedette →
               </Link>
             </Kpi>
           </div>
 
           <section className="panel">
-            <h2 className="panel__title">Visitors per day</h2>
+            <h2 className="panel__title">Visiteurs par jour</h2>
             <VisitorsChart daily={stats.daily} />
           </section>
 
           <div className="panels">
-            <BarList title="Top pages" items={stats.topPages} format={pageName} empty="No visits yet." />
+            <BarList title="Pages les plus vues" items={stats.topPages} format={pageName} empty="Aucune visite pour le moment." />
             <BarList
-              title="Where visitors come from"
+              title="Provenance des visiteurs"
               items={stats.referrers}
-              empty="No referring websites yet (direct visits are not listed)."
+              empty="Aucun site référent pour le moment (les visites directes ne sont pas listées)."
             />
             <BarList
-              title="Devices"
+              title="Appareils"
               items={stats.devices}
-              format={(d) => d.charAt(0).toUpperCase() + d.slice(1)}
-              empty="No visits yet."
+              format={(d) => deviceName[d] ?? d.charAt(0).toUpperCase() + d.slice(1)}
+              empty="Aucune visite pour le moment."
             />
           </div>
         </>

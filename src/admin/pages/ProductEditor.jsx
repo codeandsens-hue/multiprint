@@ -50,24 +50,24 @@ function ProductTranslation({ product, lang, onChange }) {
     <div className="editor">
       <section className="panel">
         <TranslationHint lang={lang} />
-        <h2 className="panel__title">General</h2>
-        {field('Product name', 'title')}
-        {field('Category tag', 'eyebrow')}
-        {field('Short summary', 'text', true)}
-        {field('Main image description', 'image.alt')}
+        <h2 className="panel__title">Général</h2>
+        {field('Nom du produit', 'title')}
+        {field('Étiquette de catégorie', 'eyebrow')}
+        {field('Résumé court', 'text', true)}
+        {field('Description de l’image principale', 'image.alt')}
       </section>
 
       <section className="panel">
-        <h2 className="panel__title">Product page</h2>
-        {product.description.map((_, i) => field(`Description paragraph ${i + 1}`, `description.${i}`, true))}
-        {product.features.map((_, i) => field(`Feature ${i + 1}`, `features.${i}`))}
+        <h2 className="panel__title">Page produit</h2>
+        {product.description.map((_, i) => field(`Paragraphe de description ${i + 1}`, `description.${i}`, true))}
+        {product.features.map((_, i) => field(`Caractéristique ${i + 1}`, `features.${i}`))}
         {product.specs.map((_, i) => (
           <div key={i} className="form-grid">
-            {field(`Detail ${i + 1} · label`, `specs.${i}.label`)}
-            {field(`Detail ${i + 1} · value`, `specs.${i}.value`)}
+            {field(`Détail ${i + 1} · libellé`, `specs.${i}.label`)}
+            {field(`Détail ${i + 1} · valeur`, `specs.${i}.value`)}
           </div>
         ))}
-        {product.gallery.map((_, i) => field(`Gallery image ${i + 1} · description`, `gallery.${i}.alt`))}
+        {product.gallery.map((_, i) => field(`Image de galerie ${i + 1} · description`, `gallery.${i}.alt`))}
       </section>
     </div>
   )
@@ -98,7 +98,7 @@ function ProductForm({ initial, isNew }) {
       })
       await reload()
       navigate(`/admin/products/${saved.id}`, { replace: true, state: { saved: true } })
-      setMessage('Saved ✓')
+      setMessage('Enregistré ✓')
     } catch (err) {
       setMessage(err.message)
     } finally {
@@ -111,15 +111,15 @@ function ProductForm({ initial, isNew }) {
       <header className="admin-page__header">
         <div>
           <Link to="/admin/products" className="back-link">
-            ← All products
+            ← Tous les produits
           </Link>
-          <h1>{isNew ? 'New product' : product.title || 'Untitled product'}</h1>
+          <h1>{isNew ? 'Nouveau produit' : product.title || 'Produit sans nom'}</h1>
         </div>
         <div className="admin-page__actions">
           <LanguageTabs value={lang} onChange={setLang} />
           {!isNew && (
             <a href={`/products/${product.id}`} target="_blank" rel="noreferrer" className="btn btn--outline">
-              View on website ↗
+              Voir sur le site ↗
             </a>
           )}
         </div>
@@ -137,17 +137,17 @@ function ProductForm({ initial, isNew }) {
       ) : (
         <div className="editor">
           <section className="panel">
-            <h2 className="panel__title">General</h2>
+            <h2 className="panel__title">Général</h2>
             <div className="form-grid">
-              <TextField label="Product name *" value={product.title} onChange={(title) => set({ title })} required />
+              <TextField label="Nom du produit *" value={product.title} onChange={(title) => set({ title })} required />
               <TextField
-                label="Category tag"
+                label="Étiquette de catégorie"
                 value={product.eyebrow}
                 onChange={(eyebrow) => set({ eyebrow })}
-                hint="Short label shown above the name, e.g. “Étiquettes PET”"
+                hint="Court libellé affiché au-dessus du nom, ex. « Étiquettes PET »"
               />
               <div className="field">
-                <label htmlFor="product-category">Category *</label>
+                <label htmlFor="product-category">Catégorie *</label>
                 <select
                   id="product-category"
                   value={product.category}
@@ -167,37 +167,37 @@ function ProductForm({ initial, isNew }) {
                   onChange={(e) => set({ featured: e.target.checked })}
                 />
                 <span className="switch__track" aria-hidden="true" />
-                Featured on the home page
+                En vedette sur la page d’accueil
               </label>
             </div>
             <TextField
-              label="Short summary"
+              label="Résumé court"
               value={product.text}
               onChange={(text) => set({ text })}
               multiline
-              hint="Shown in the home page carousel and used by the search"
+              hint="Affiché dans le carrousel de l’accueil et utilisé par la recherche"
             />
           </section>
 
           <section className="panel">
             <h2 className="panel__title">Images</h2>
             <ImageField
-              label="Main image *"
+              label="Image principale *"
               value={product.image.src}
               onChange={(src) => set({ image: { ...product.image, src } })}
-              hint="A PNG with a transparent background looks best"
+              hint="Un PNG avec fond transparent donne le meilleur rendu"
             />
             <TextField
-              label="Image description (for screen readers)"
+              label="Description de l’image (pour les lecteurs d’écran)"
               value={product.image.alt}
               onChange={(alt) => set({ image: { ...product.image, alt } })}
             />
             <ListField
-              label="Gallery (extra images on the product page)"
+              label="Galerie (images supplémentaires sur la page produit)"
               items={product.gallery}
               onChange={(gallery) => set({ gallery })}
               create={() => ({ src: '', alt: '' })}
-              addLabel="Add image"
+              addLabel="Ajouter une image"
               renderItem={(img, update) => (
                 <>
                   <ImageField label="Image" value={img.src} onChange={(src) => update({ ...img, src })} />
@@ -208,30 +208,30 @@ function ProductForm({ initial, isNew }) {
           </section>
 
           <section className="panel">
-            <h2 className="panel__title">Product page</h2>
+            <h2 className="panel__title">Page produit</h2>
             <StringList
-              label="Description paragraphs"
+              label="Paragraphes de description"
               items={product.description}
               onChange={(description) => set({ description })}
-              addLabel="Add paragraph"
+              addLabel="Ajouter un paragraphe"
               multiline
             />
             <StringList
-              label="Key features (checklist)"
+              label="Caractéristiques principales (liste)"
               items={product.features}
               onChange={(features) => set({ features })}
-              addLabel="Add feature"
+              addLabel="Ajouter une caractéristique"
             />
             <ListField
-              label="Technical details"
+              label="Détails techniques"
               items={product.specs}
               onChange={(specs) => set({ specs })}
               create={() => ({ label: '', value: '' })}
-              addLabel="Add row"
+              addLabel="Ajouter une ligne"
               renderItem={(spec, update) => (
                 <div className="form-grid">
-                  <TextField label="Label" value={spec.label} onChange={(label) => update({ ...spec, label })} />
-                  <TextField label="Value" value={spec.value} onChange={(value) => update({ ...spec, value })} />
+                  <TextField label="Libellé" value={spec.label} onChange={(label) => update({ ...spec, label })} />
+                  <TextField label="Valeur" value={spec.value} onChange={(value) => update({ ...spec, value })} />
                 </div>
               )}
             />
@@ -245,7 +245,7 @@ function ProductForm({ initial, isNew }) {
         message={message}
         onSave={save}
         onReset={() => setProduct(initial)}
-        saveLabel={isNew ? 'Create product' : 'Save changes'}
+        saveLabel={isNew ? 'Créer le produit' : 'Enregistrer'}
       />
     </>
   )
@@ -260,7 +260,7 @@ function ProductEditor() {
     return (
       <section className="panel">
         <p className="panel__empty">
-          This product doesn’t exist. <Link to="/admin/products">Back to products</Link>
+          Ce produit n’existe pas. <Link to="/admin/products">Retour aux produits</Link>
         </p>
       </section>
     )

@@ -1,64 +1,64 @@
 import { useState } from 'react'
 import { useContent } from '../../content/context.js'
 import { api } from '../api.js'
-import { ImageField, ListField, SaveBar, TextField } from '../fields.jsx'
+import { ImageField, ListField, SaveBar, TextField, ToggleField } from '../fields.jsx'
 import { getPath, setPath, textDir } from '../paths.js'
 import { LanguageTabs, TranslationHint } from '../translation.jsx'
 
 // Describes every editable part of the site. `path` is where the value lives in the site document.
-// Field types: text, textarea, image, number, list (with `fields` for each item).
+// Field types: text, textarea, image, number, toggle, list (with `fields` for each item).
 // `translate: false` marks values shared by every language (phone, email, links…).
 const sections = [
   {
     id: 'company',
-    title: 'Company details',
-    where: 'Footer, contact page and forms',
+    title: 'Informations de l’entreprise',
+    where: 'Pied de page, page contact et formulaires',
     fields: [
-      { path: 'company.name', label: 'Company name' },
-      { path: 'company.description', label: 'Short description (footer)', type: 'textarea' },
-      { path: 'company.address', label: 'Address', type: 'textarea', hint: 'One line per row' },
-      { path: 'company.phone', label: 'Phone', translate: false },
-      { path: 'company.email', label: 'Email (orders and messages are also sent here as a fallback)', translate: false },
-      { path: 'company.hours', label: 'Opening hours' },
-      { path: 'company.mapQuery', label: 'Map location', hint: 'An address or “latitude,longitude” used for the Google map', translate: false },
+      { path: 'company.name', label: 'Nom de l’entreprise' },
+      { path: 'company.description', label: 'Description courte (pied de page)', type: 'textarea' },
+      { path: 'company.address', label: 'Adresse', type: 'textarea', hint: 'Une ligne par rangée' },
+      { path: 'company.phone', label: 'Téléphone', translate: false },
+      { path: 'company.email', label: 'E-mail (les commandes et messages y sont aussi envoyés en secours)', translate: false },
+      { path: 'company.hours', label: 'Horaires d’ouverture' },
+      { path: 'company.mapQuery', label: 'Emplacement sur la carte', hint: 'Une adresse ou « latitude,longitude » pour la carte Google', translate: false },
       {
         path: 'company.socials',
         translate: false,
-        label: 'Social networks',
+        label: 'Réseaux sociaux',
         type: 'list',
-        addLabel: 'Add network',
+        addLabel: 'Ajouter un réseau',
         create: { name: '', href: 'https://' },
         fields: [
-          { key: 'name', label: 'Name', hint: 'Facebook, Instagram, LinkedIn and YouTube get their own icon' },
-          { key: 'href', label: 'Link' },
+          { key: 'name', label: 'Nom', hint: 'Facebook, Instagram, LinkedIn et YouTube ont leur propre icône' },
+          { key: 'href', label: 'Lien' },
         ],
       },
     ],
   },
   {
     id: 'hero',
-    title: 'Home · Carousel',
-    where: 'Top of the home page (slides are your featured products)',
+    title: 'Accueil · Carrousel',
+    where: 'Haut de la page d’accueil (les diapositives sont vos produits en vedette)',
     fields: [
-      { path: 'hero.primaryLabel', label: 'Main button text' },
-      { path: 'hero.secondaryLabel', label: 'Second button text' },
+      { path: 'hero.primaryLabel', label: 'Texte du bouton principal' },
+      { path: 'hero.secondaryLabel', label: 'Texte du second bouton' },
     ],
   },
   {
     id: 'certification',
-    title: 'Home · Certifications',
-    where: 'Home and About pages',
+    title: 'Accueil · Certifications',
+    where: 'Pages Accueil et À propos',
     fields: [
-      { path: 'certification.title', label: 'Title', type: 'textarea', rows: 2 },
+      { path: 'certification.title', label: 'Titre', type: 'textarea', rows: 2 },
       {
         path: 'certification.items',
-        label: 'Certificates',
+        label: 'Certificats',
         type: 'list',
-        addLabel: 'Add certificate',
+        addLabel: 'Ajouter un certificat',
         create: { image: '', title: '', description: '' },
         fields: [
           { key: 'image', label: 'Logo', type: 'image' },
-          { key: 'title', label: 'Name' },
+          { key: 'title', label: 'Nom' },
           { key: 'description', label: 'Description', type: 'textarea' },
         ],
       },
@@ -66,95 +66,121 @@ const sections = [
   },
   {
     id: 'about',
-    title: 'Home · About',
-    where: 'Home and About pages',
+    title: 'Accueil · À propos',
+    where: 'Pages Accueil et À propos',
     fields: [
-      { path: 'about.title', label: 'Title', type: 'textarea', rows: 2, hint: 'Press Enter for a line break' },
-      { path: 'about.text', label: 'Text', type: 'textarea' },
+      { path: 'about.title', label: 'Titre', type: 'textarea', rows: 2, hint: 'Appuyez sur Entrée pour un retour à la ligne' },
+      { path: 'about.text', label: 'Texte', type: 'textarea' },
       {
         path: 'about.stats',
-        label: 'Statistics',
+        label: 'Statistiques',
         type: 'list',
-        addLabel: 'Add statistic',
+        addLabel: 'Ajouter une statistique',
         create: { value: 0, label: '' },
         fields: [
-          { key: 'value', label: 'Number', type: 'number' },
-          { key: 'label', label: 'Label' },
+          { key: 'value', label: 'Nombre', type: 'number' },
+          { key: 'label', label: 'Libellé' },
         ],
       },
-      { path: 'about.image', label: 'Square image', type: 'image' },
+      { path: 'about.image', label: 'Image carrée', type: 'image' },
     ],
   },
   {
     id: 'latestProducts',
-    title: 'Home · Latest products',
-    where: 'Scrolling product row on the home page',
+    title: 'Accueil · Derniers produits',
+    where: 'Bandeau défilant de produits sur la page d’accueil',
     fields: [
-      { path: 'latestProducts.title', label: 'Title' },
-      { path: 'latestProducts.subtitle', label: 'Subtitle', type: 'textarea' },
+      { path: 'latestProducts.title', label: 'Titre' },
+      { path: 'latestProducts.subtitle', label: 'Sous-titre', type: 'textarea' },
     ],
   },
   {
     id: 'cta',
-    title: 'Home · Call to action banner',
-    where: 'Full-width banner on the home page',
+    title: 'Accueil · Bannière d’appel à l’action',
+    where: 'Bannière pleine largeur sur la page d’accueil',
     fields: [
-      { path: 'cta.title', label: 'Title' },
-      { path: 'cta.text', label: 'Text', type: 'textarea' },
-      { path: 'cta.image', label: 'Background image', type: 'image', hint: 'Wide photo; a dark overlay is added automatically' },
+      { path: 'cta.title', label: 'Titre' },
+      { path: 'cta.text', label: 'Texte', type: 'textarea' },
+      { path: 'cta.image', label: 'Image de fond', type: 'image', hint: 'Photo large ; un voile sombre est ajouté automatiquement' },
     ],
   },
   {
     id: 'journey',
-    title: 'Home · Our journey',
-    where: 'Home and About pages',
+    title: 'Accueil · Notre parcours',
+    where: 'Pages Accueil et À propos',
     fields: [
-      { path: 'journey.title', label: 'Title' },
-      { path: 'journey.image', label: 'Square image', type: 'image' },
+      { path: 'journey.title', label: 'Titre' },
+      { path: 'journey.image', label: 'Image carrée', type: 'image' },
       {
         path: 'journey.points',
         label: 'Points',
         type: 'list',
-        addLabel: 'Add point',
+        addLabel: 'Ajouter un point',
         create: { title: '', text: '' },
         fields: [
-          { key: 'title', label: 'Title' },
-          { key: 'text', label: 'Text', type: 'textarea' },
+          { key: 'title', label: 'Titre' },
+          { key: 'text', label: 'Texte', type: 'textarea' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'clients',
+    title: 'Logos clients',
+    where: 'Bandeau défilant au-dessus du pied de page, sur toutes les pages',
+    fields: [
+      {
+        path: 'clients.enabled',
+        label: 'Afficher les logos clients sur le site',
+        type: 'toggle',
+        hint: 'Le bandeau n’apparaît que s’il est activé et contient au moins un logo',
+      },
+      { path: 'clients.title', label: 'Titre (facultatif)' },
+      {
+        path: 'clients.logos',
+        translate: false,
+        label: 'Logos',
+        type: 'list',
+        addLabel: 'Ajouter un logo',
+        create: { image: '', name: '' },
+        fields: [
+          { key: 'image', label: 'Logo', type: 'image', hint: 'PNG ou WebP à fond transparent, de préférence' },
+          { key: 'name', label: 'Nom du client', hint: 'Lu par les lecteurs d’écran' },
         ],
       },
     ],
   },
   {
     id: 'process',
-    title: 'About · How we work',
-    where: 'About page',
+    title: 'À propos · Notre méthode',
+    where: 'Page À propos',
     fields: [
-      { path: 'process.title', label: 'Title' },
-      { path: 'process.subtitle', label: 'Subtitle', type: 'textarea' },
+      { path: 'process.title', label: 'Titre' },
+      { path: 'process.subtitle', label: 'Sous-titre', type: 'textarea' },
       {
         path: 'process.steps',
-        label: 'Steps',
+        label: 'Étapes',
         type: 'list',
-        addLabel: 'Add step',
+        addLabel: 'Ajouter une étape',
         create: { title: '', text: '' },
         fields: [
-          { key: 'title', label: 'Title' },
-          { key: 'text', label: 'Text', type: 'textarea' },
+          { key: 'title', label: 'Titre' },
+          { key: 'text', label: 'Texte', type: 'textarea' },
         ],
       },
     ],
   },
   {
     id: 'pages',
-    title: 'Page headers',
-    where: 'Title and intro at the top of the Products, About and Contact pages',
+    title: 'En-têtes de page',
+    where: 'Titre et introduction en haut des pages Produits, À propos et Contact',
     fields: [
-      { path: 'pages.products.title', label: 'Products page · title' },
-      { path: 'pages.products.subtitle', label: 'Products page · intro', type: 'textarea' },
-      { path: 'pages.about.title', label: 'About page · title' },
-      { path: 'pages.about.subtitle', label: 'About page · intro', type: 'textarea' },
-      { path: 'pages.contact.title', label: 'Contact page · title' },
-      { path: 'pages.contact.subtitle', label: 'Contact page · intro', type: 'textarea' },
+      { path: 'pages.products.title', label: 'Page Produits · titre' },
+      { path: 'pages.products.subtitle', label: 'Page Produits · introduction', type: 'textarea' },
+      { path: 'pages.about.title', label: 'Page À propos · titre' },
+      { path: 'pages.about.subtitle', label: 'Page À propos · introduction', type: 'textarea' },
+      { path: 'pages.contact.title', label: 'Page Contact · titre' },
+      { path: 'pages.contact.subtitle', label: 'Page Contact · introduction', type: 'textarea' },
     ],
   },
 ]
@@ -212,6 +238,8 @@ function Field({ field, value, onChange }) {
       return <TextField {...common} value={value} onChange={onChange} multiline rows={field.rows ?? 3} />
     case 'image':
       return <ImageField {...common} value={value} onChange={onChange} />
+    case 'toggle':
+      return <ToggleField {...common} value={value} onChange={onChange} />
     case 'number':
       return <TextField {...common} type="number" value={value} onChange={(v) => onChange(v === '' ? '' : Number(v))} />
     case 'list':
@@ -255,7 +283,7 @@ function ContentEditor() {
     try {
       await api('/admin/site', { method: 'PUT', body: draft })
       await reload()
-      setMessage('Saved ✓ — the website is updated')
+      setMessage('Enregistré ✓ — le site est à jour')
     } catch (err) {
       setMessage(err.message)
     } finally {
@@ -267,8 +295,8 @@ function ContentEditor() {
     <>
       <header className="admin-page__header">
         <div>
-          <h1>Site content</h1>
-          <p>Every text and image of the website. Changes go live as soon as you save.</p>
+          <h1>Contenu du site</h1>
+          <p>Tous les textes et images du site. Les modifications sont en ligne dès l’enregistrement.</p>
         </div>
         <LanguageTabs value={lang} onChange={setLang} />
       </header>
@@ -284,7 +312,7 @@ function ContentEditor() {
 
         <section className="panel">
           <h2 className="panel__title">{section.title}</h2>
-          <p className="panel__hint">Appears in: {section.where}</p>
+          <p className="panel__hint">Apparaît dans : {section.where}</p>
           {lang === 'en' ? (
             section.fields.map((field) => (
               <Field
@@ -314,7 +342,7 @@ function ContentEditor() {
                 />
               ))}
               {!section.fields.some(isTranslatable) && (
-                <p className="panel__empty">Nothing to translate in this section.</p>
+                <p className="panel__empty">Rien à traduire dans cette section.</p>
               )}
             </>
           )}

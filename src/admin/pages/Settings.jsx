@@ -10,13 +10,13 @@ function Settings() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    if (next !== confirm) return setStatus({ type: 'error', text: 'The new passwords don’t match' })
+    if (next !== confirm) return setStatus({ type: 'error', text: 'Les nouveaux mots de passe ne correspondent pas' })
     try {
       await api('/admin/password', { method: 'PUT', body: { current, next } })
       setCurrent('')
       setNext('')
       setConfirm('')
-      setStatus({ type: 'ok', text: 'Password changed. Other devices have been signed out.' })
+      setStatus({ type: 'ok', text: 'Mot de passe modifié. Les autres appareils ont été déconnectés.' })
     } catch (err) {
       setStatus({ type: 'error', text: err.message })
     }
@@ -26,33 +26,33 @@ function Settings() {
     <>
       <header className="admin-page__header">
         <div>
-          <h1>Settings</h1>
-          <p>Dashboard security.</p>
+          <h1>Paramètres</h1>
+          <p>Sécurité du tableau de bord.</p>
         </div>
       </header>
 
       <section className="panel panel--narrow">
-        <h2 className="panel__title">Change password</h2>
+        <h2 className="panel__title">Changer le mot de passe</h2>
         <form onSubmit={onSubmit} className="stack">
-          <TextField label="Current password" type="password" autoComplete="current-password" value={current} onChange={setCurrent} required />
+          <TextField label="Mot de passe actuel" type="password" autoComplete="current-password" value={current} onChange={setCurrent} required />
           <TextField
-            label="New password"
+            label="Nouveau mot de passe"
             type="password"
             autoComplete="new-password"
             value={next}
             onChange={setNext}
             required
             minLength={8}
-            hint="At least 8 characters"
+            hint="Au moins 8 caractères"
           />
-          <TextField label="Repeat new password" type="password" autoComplete="new-password" value={confirm} onChange={setConfirm} required />
+          <TextField label="Confirmer le nouveau mot de passe" type="password" autoComplete="new-password" value={confirm} onChange={setConfirm} required />
           {status.text && (
             <p className={status.type === 'ok' ? 'admin-ok' : 'admin-error'} role="status">
               {status.text}
             </p>
           )}
           <button type="submit" className="btn btn--primary">
-            Update password
+            Mettre à jour le mot de passe
           </button>
         </form>
       </section>

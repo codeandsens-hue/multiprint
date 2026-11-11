@@ -20,7 +20,7 @@ function Products() {
   }
 
   const remove = async (product) => {
-    if (!confirm(`Delete “${product.title}”? This can't be undone.`)) return
+    if (!confirm(`Supprimer « ${product.title} » ? Cette action est irréversible.`)) return
     try {
       await api(`/admin/products/${product.id}`, { method: 'DELETE' })
       await reload()
@@ -36,13 +36,13 @@ function Products() {
     <>
       <header className="admin-page__header">
         <div>
-          <h1>Products</h1>
+          <h1>Produits</h1>
           <p>
-            {products.length} products. Featured products appear in the home page carousel and “Latest products”.
+            {products.length} produits. Les produits en vedette apparaissent dans le carrousel de l’accueil et dans « Derniers produits ».
           </p>
         </div>
         <Link to="/admin/products/new" className="btn btn--primary">
-          + Add product
+          + Ajouter un produit
         </Link>
       </header>
 
@@ -52,18 +52,18 @@ function Products() {
         <div className="table-tools">
           <input
             type="search"
-            placeholder="Search products…"
+            placeholder="Rechercher un produit…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            aria-label="Search products"
+            aria-label="Rechercher un produit"
           />
         </div>
         <table className="table">
           <thead>
             <tr>
-              <th>Product</th>
-              <th>Category</th>
-              <th>Featured</th>
+              <th>Produit</th>
+              <th>Catégorie</th>
+              <th>En vedette</th>
               <th aria-label="Actions" />
             </tr>
           </thead>
@@ -79,7 +79,7 @@ function Products() {
                     </span>
                   </Link>
                 </td>
-                <td>{categoryLabel(product.category) || <em>None</em>}</td>
+                <td>{categoryLabel(product.category) || <em>Aucune</em>}</td>
                 <td>
                   <label className="switch">
                     <input
@@ -88,18 +88,18 @@ function Products() {
                       onChange={(e) => save(product, { featured: e.target.checked })}
                     />
                     <span className="switch__track" aria-hidden="true" />
-                    <span className="visually-hidden">Featured</span>
+                    <span className="visually-hidden">En vedette</span>
                   </label>
                 </td>
                 <td className="table__actions">
                   <a href={`/products/${product.id}`} target="_blank" rel="noreferrer" className="link">
-                    View
+                    Voir
                   </a>
                   <Link to={`/admin/products/${product.id}`} className="link">
-                    Edit
+                    Modifier
                   </Link>
                   <button type="button" className="link link--danger" onClick={() => remove(product)}>
-                    Delete
+                    Supprimer
                   </button>
                 </td>
               </tr>
@@ -107,7 +107,7 @@ function Products() {
             {visible.length === 0 && (
               <tr>
                 <td colSpan={4} className="panel__empty">
-                  No products match “{query}”.
+                  Aucun produit ne correspond à « {query} ».
                 </td>
               </tr>
             )}

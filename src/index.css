@@ -24,24 +24,11 @@
   --sans: 'Outfit Variable', 'Noto Sans Arabic Variable', system-ui, 'Segoe UI', Roboto, sans-serif;
 
   font: 16px/1.6 var(--sans);
-  color-scheme: light dark;
+  color-scheme: light;
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #94a3b8;
-    --text-h: #f1f5f9;
-    --bg: #0b1120;
-    --surface: #111827;
-    --muted-bg: #131c2e;
-    --border: #1e293b;
-    --accent-bg: rgba(250, 191, 2, 0.1);
-    --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  }
 }
 
 *,

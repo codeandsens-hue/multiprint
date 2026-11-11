@@ -35,7 +35,7 @@ function CategoryRow({ category, count, onError }) {
     )
 
   const remove = () => {
-    if (!confirm(`Delete the category “${category.label}”?`)) return
+    if (!confirm(`Supprimer la catégorie « ${category.label} » ?`)) return
     run(() => api(`/admin/categories/${category.id}`, { method: 'DELETE' }))
   }
 
@@ -43,7 +43,7 @@ function CategoryRow({ category, count, onError }) {
     <tr>
       <td>
         <input
-          aria-label="Category name in English"
+          aria-label="Nom de la catégorie en anglais"
           value={label}
           onChange={(e) => setLabel(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && changed && rename()}
@@ -51,7 +51,7 @@ function CategoryRow({ category, count, onError }) {
       </td>
       <td>
         <input
-          aria-label="Category name in French"
+          aria-label="Nom de la catégorie en français"
           lang="fr"
           value={fr}
           placeholder={label}
@@ -61,7 +61,7 @@ function CategoryRow({ category, count, onError }) {
       </td>
       <td>
         <input
-          aria-label="Category name in Arabic"
+          aria-label="Nom de la catégorie en arabe"
           lang="ar"
           dir="rtl"
           value={ar}
@@ -71,7 +71,7 @@ function CategoryRow({ category, count, onError }) {
         />
       </td>
       <td>
-        {count} product{count === 1 ? '' : 's'}
+        {count} produit{count > 1 ? 's' : ''}
       </td>
       <td className="table__actions">
         <button
@@ -80,16 +80,16 @@ function CategoryRow({ category, count, onError }) {
           onClick={rename}
           disabled={busy || !label.trim() || !changed}
         >
-          Save
+          Enregistrer
         </button>
         <button
           type="button"
           className="link link--danger"
           onClick={remove}
           disabled={busy || count > 0}
-          title={count > 0 ? 'Move or delete its products first' : undefined}
+          title={count > 0 ? 'Déplacez ou supprimez d’abord ses produits' : undefined}
         >
-          Delete
+          Supprimer
         </button>
       </td>
     </tr>
@@ -118,10 +118,10 @@ function Categories() {
     <>
       <header className="admin-page__header">
         <div>
-          <h1>Categories</h1>
+          <h1>Catégories</h1>
           <p>
-            Used by the filters on the products page. Empty translations show the English name. A category with
-            products can’t be deleted.
+            Utilisées par les filtres de la page produits. Une traduction vide affiche le nom anglais. Une catégorie
+            contenant des produits ne peut pas être supprimée.
           </p>
         </div>
       </header>
@@ -135,7 +135,7 @@ function Categories() {
               <th>English</th>
               <th>Français</th>
               <th>العربية</th>
-              <th>Products</th>
+              <th>Produits</th>
               <th aria-label="Actions" />
             </tr>
           </thead>
@@ -152,14 +152,14 @@ function Categories() {
         </table>
         <form className="table-tools table-tools--bottom" onSubmit={add}>
           <input
-            aria-label="New category name"
-            placeholder="New category name"
+            aria-label="Nom de la nouvelle catégorie"
+            placeholder="Nom de la nouvelle catégorie"
             value={label}
             onChange={(e) => setLabel(e.target.value)}
             required
           />
           <button type="submit" className="btn btn--primary btn--sm">
-            + Add category
+            + Ajouter une catégorie
           </button>
         </form>
       </section>

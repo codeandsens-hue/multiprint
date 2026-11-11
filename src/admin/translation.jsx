@@ -5,7 +5,7 @@ import { editLanguages, languageLabel } from './paths.js'
 
 export function LanguageTabs({ value, onChange }) {
   return (
-    <div className="segmented" role="group" aria-label="Language to edit">
+    <div className="segmented" role="group" aria-label="Langue à modifier">
       {editLanguages.map((l) => (
         <button key={l.code} type="button" aria-pressed={value === l.code} onClick={() => onChange(l.code)}>
           <span lang={l.code}>{l.label}</span>
@@ -19,8 +19,8 @@ export function LanguageTabs({ value, onChange }) {
 export function TranslationHint({ lang }) {
   return (
     <p className="translation-hint">
-      Editing the <strong>{languageLabel(lang)}</strong> version. Leave a field empty to show the English
-      text. Images, numbers and links are shared by all languages.
+      Vous modifiez la version <strong>{languageLabel(lang)}</strong>. Laissez un champ vide pour afficher le
+      texte anglais. Les images, les chiffres et les liens sont communs à toutes les langues.
     </p>
   )
 }

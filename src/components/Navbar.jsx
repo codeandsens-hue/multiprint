@@ -55,7 +55,7 @@ function Navbar() {
     <header className={`navbar${hidden && !menuOpen && !langOpen ? ' is-hidden' : ''}`}>
       <div className="navbar__inner container">
         <Link to="/" className="navbar__logo" onClick={() => setMenuOpen(false)}>
-          Multi<span>print</span>
+          <img src="/brand/logo.png" alt="Multiprint" width="640" height="366" />
         </Link>
 
         <nav className={`navbar__links${menuOpen ? ' is-open' : ''}`} aria-label={t('nav.main')}>

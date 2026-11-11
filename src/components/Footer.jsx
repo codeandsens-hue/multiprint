@@ -58,7 +58,7 @@ function Footer({ showMap = true }) {
           {/* Brand */}
           <div className="footer__brand">
             <Link to="/" className="footer__logo">
-              Multi<span>print</span>
+              <img src="/brand/logo-light.png" alt="Multiprint" width="640" height="366" />
             </Link>
             <p className="footer__description">{company.description}</p>
             <ul className="footer__socials">

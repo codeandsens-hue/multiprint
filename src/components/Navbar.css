@@ -35,14 +35,13 @@
 .navbar__logo {
   justify-self: start;
   align-self: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--text-h);
+  display: block;
 }
 
-.navbar__logo span {
-  color: var(--accent);
+.navbar__logo img {
+  display: block;
+  width: auto;
+  height: 52px;
 }
 
 /* Center links — plain text, active one in darker, bolder type */
@@ -227,8 +226,8 @@
     height: 64px;
   }
 
-  .navbar__logo {
-    font-size: 1.35rem;
+  .navbar__logo img {
+    height: 44px;
   }
 
   .navbar__toggle {

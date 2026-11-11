@@ -125,6 +125,11 @@
         "subtitle": "A question, a quote or an order? Our team will get back to you as soon as possible."
       }
     },
+    "clients": {
+      "enabled": false,
+      "title": "They trust us",
+      "logos": []
+    },
     "i18n": {
       "fr": {
         "company": {
@@ -217,6 +222,9 @@
             "title": "Parlons de votre projet",
             "subtitle": "Une question, un devis ou une commande ? Notre équipe vous répond dans les meilleurs délais."
           }
+        },
+        "clients": {
+          "title": "Ils nous font confiance"
         }
       },
       "ar": {
@@ -310,6 +318,9 @@
             "title": "لنتحدث عن مشروعك",
             "subtitle": "سؤال أو عرض سعر أو طلب؟ سيرد عليك فريقنا في أقرب وقت ممكن."
           }
+        },
+        "clients": {
+          "title": "يثقون بنا"
         }
       }
     }

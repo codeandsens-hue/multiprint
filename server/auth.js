@@ -77,7 +77,7 @@ export function isLoggedIn(req) {
 
 export function requireAdmin(req, res, next) {
   if (isLoggedIn(req)) return next()
-  res.status(401).json({ error: 'Not signed in' })
+  res.status(401).json({ error: 'Non connecté' })
 }
 
 // ---------- Brute-force protection: 5 failed attempts per IP per 15 minutes ----------

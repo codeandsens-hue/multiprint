@@ -105,11 +105,11 @@ app.get('/api/auth/session', (req, res) => res.json({ signedIn: isLoggedIn(req) 
 
 app.post('/api/auth/login', (req, res) => {
   if (tooManyAttempts(req.ip)) {
-    return res.status(429).json({ error: 'Too many attempts. Try again in 15 minutes.' })
+    return res.status(429).json({ error: 'Trop de tentatives. Réessayez dans 15 minutes.' })
   }
   if (!checkPassword(String(req.body?.password ?? ''))) {
     recordFailure(req.ip)
-    return res.status(401).json({ error: 'Incorrect password' })
+    return res.status(401).json({ error: 'Mot de passe incorrect' })
   }
   clearFailures(req.ip)
   createSession(res)
@@ -128,8 +128,8 @@ admin.use(requireAdmin)
 
 admin.put('/password', (req, res) => {
   const { current, next } = req.body ?? {}
-  if (!checkPassword(String(current ?? ''))) return res.status(400).json({ error: 'Current password is incorrect' })
-  if (String(next ?? '').length < 8) return res.status(400).json({ error: 'The new password needs at least 8 characters' })
+  if (!checkPassword(String(current ?? ''))) return res.status(400).json({ error: 'Le mot de passe actuel est incorrect' })
+  if (String(next ?? '').length < 8) return res.status(400).json({ error: 'Le nouveau mot de passe doit contenir au moins 8 caractères' })
   setPassword(String(next))
   destroyAllSessions() // sign out every other device
   createSession(res)
@@ -143,7 +143,7 @@ admin.get('/stats', (req, res) => {
 
 // Site texts and images (one document)
 admin.put('/site', (req, res) => {
-  if (typeof req.body !== 'object' || !req.body.company) return res.status(400).json({ error: 'Invalid content' })
+  if (typeof req.body !== 'object' || !req.body.company) return res.status(400).json({ error: 'Contenu invalide' })
   writeDoc('site', req.body)
   res.json(req.body)
 })
@@ -159,7 +159,7 @@ const cleanI18n = (i18n) =>
 
 admin.post('/categories', (req, res) => {
   const label = String(req.body?.label ?? '').trim()
-  if (!label) return res.status(400).json({ error: 'A name is required' })
+  if (!label) return res.status(400).json({ error: 'Un nom est requis' })
   const categories = readDoc('categories')
   const category = { id: uniqueId(label, categories.map((c) => c.id)), label, i18n: cleanI18n(req.body?.i18n) }
   writeDoc('categories', [...categories, category])
@@ -168,9 +168,9 @@ admin.post('/categories', (req, res) => {
 
 admin.put('/categories/:id', (req, res) => {
   const label = String(req.body?.label ?? '').trim()
-  if (!label) return res.status(400).json({ error: 'A name is required' })
+  if (!label) return res.status(400).json({ error: 'Un nom est requis' })
   const categories = readDoc('categories')
-  if (!categories.some((c) => c.id === req.params.id)) return res.status(404).json({ error: 'Category not found' })
+  if (!categories.some((c) => c.id === req.params.id)) return res.status(404).json({ error: 'Catégorie introuvable' })
   const i18n = cleanI18n(req.body?.i18n)
   writeDoc('categories', categories.map((c) => (c.id === req.params.id ? { ...c, label, i18n } : c)))
   res.json({ id: req.params.id, label, i18n })
@@ -178,7 +178,7 @@ admin.put('/categories/:id', (req, res) => {
 
 admin.delete('/categories/:id', (req, res) => {
   const used = readDoc('products').filter((p) => p.category === req.params.id).length
-  if (used) return res.status(409).json({ error: `Move or delete its ${used} product(s) first` })
+  if (used) return res.status(409).json({ error: `Déplacez ou supprimez d’abord ses ${used} produit(s)` })
   writeDoc('categories', readDoc('categories').filter((c) => c.id !== req.params.id))
   res.status(204).end()
 })
@@ -204,7 +204,7 @@ admin.put('/products/:id', (req, res) => {
   const error = validProduct(req.body)
   if (error) return res.status(400).json({ error })
   const products = readDoc('products')
-  if (!products.some((p) => p.id === req.params.id)) return res.status(404).json({ error: 'Product not found' })
+  if (!products.some((p) => p.id === req.params.id)) return res.status(404).json({ error: 'Produit introuvable' })
   const product = { ...req.body, id: req.params.id }
   writeDoc('products', products.map((p) => (p.id === req.params.id ? product : p)))
   res.json(product)
@@ -227,7 +227,7 @@ const upload = multer({
 })
 
 admin.post('/upload', upload.single('file'), (req, res) => {
-  if (!req.file) return res.status(400).json({ error: 'Upload a PNG, JPG, WebP, GIF or AVIF image (max 8 MB)' })
+  if (!req.file) return res.status(400).json({ error: 'Envoyez une image PNG, JPG, WebP, GIF ou AVIF (8 Mo max.)' })
   res.status(201).json({ url: `/uploads/${req.file.filename}` })
 })
 
@@ -255,7 +255,7 @@ app.use((err, req, res, next) => {
   if (res.headersSent) return next(err)
   const status = err.code === 'LIMIT_FILE_SIZE' ? 413 : err.status ?? 500
   if (status === 500) console.error(err)
-  res.status(status).json({ error: status === 413 ? 'Image is larger than 8 MB' : 'Something went wrong' })
+  res.status(status).json({ error: status === 413 ? 'L’image dépasse 8 Mo' : 'Something went wrong' })
 })
 
 // ---------- Files ----------

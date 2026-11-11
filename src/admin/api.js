@@ -8,7 +8,7 @@ export async function api(path, { method = 'GET', body } = {}) {
   if (res.status === 204) return null
   const data = await res.json().catch(() => ({}))
   if (!res.ok) {
-    const error = new Error(data.error ?? `Request failed (${res.status})`)
+    const error = new Error(data.error ?? `La requête a échoué (${res.status})`)
     error.status = res.status
     throw error
   }
@@ -20,6 +20,6 @@ export async function uploadImage(file) {
   form.append('file', file)
   const res = await fetch('/api/admin/upload', { method: 'POST', body: form })
   const data = await res.json().catch(() => ({}))
-  if (!res.ok) throw new Error(data.error ?? 'Upload failed')
+  if (!res.ok) throw new Error(data.error ?? 'L’envoi a échoué')
   return data.url
 }

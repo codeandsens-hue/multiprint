@@ -26,8 +26,11 @@
 /* ---------- Marquee ---------- */
 
 .products__marquee {
-  margin-top: clamp(32px, 6vh, 56px);
-  /* Fade the cards out at both screen edges */
+  /* Same width as the rest of the site, so the row doesn't stretch across wide screens */
+  max-width: var(--container);
+  margin: clamp(32px, 6vh, 56px) auto 0;
+  overflow: hidden;
+  /* Fade the cards out at both edges */
   -webkit-mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }

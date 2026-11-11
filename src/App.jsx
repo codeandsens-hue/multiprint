@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom'
+import ClientLogos from './components/ClientLogos.jsx'
 import Footer from './components/Footer.jsx'
 import Navbar from './components/Navbar.jsx'
 import PageViewTracker from './components/PageViewTracker.jsx'
@@ -25,6 +26,7 @@ function Layout() {
       <main>
         <Outlet />
       </main>
+      <ClientLogos />
       {/* The contact page has its own large map */}
       <Footer showMap={pathname !== '/contact'} />
     </>

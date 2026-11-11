@@ -27,19 +27,13 @@
 }
 
 .footer__logo {
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: #fff;
+  display: inline-block;
 }
 
-.footer__logo span,
-.footer__logo:hover {
-  color: var(--accent);
-}
-
-.footer__logo:hover span {
-  color: #fff;
+.footer__logo img {
+  display: block;
+  width: auto;
+  height: 72px;
 }
 
 .footer__description {

@@ -105,3 +105,15 @@ if (Number(readSetting('content_version') ?? 1) < 2) {
   )
   writeSetting('content_version', '2')
 }
+
+// v3: client logos strip above the footer (off until switched on in the dashboard)
+if (Number(readSetting('content_version')) < 3) {
+  const site = readDoc('site')
+  if (!site.clients) {
+    const i18n = Object.fromEntries(
+      Object.entries(site.i18n ?? {}).map(([lang, t]) => [lang, { ...t, clients: defaults.site.i18n[lang]?.clients }]),
+    )
+    writeDoc('site', { ...site, clients: defaults.site.clients, i18n })
+  }
+  writeSetting('content_version', '3')
+}

@@ -1,6 +1,6 @@
 // Languages the content can be edited in (English is the base; others are stored in `i18n`)
 export const editLanguages = [
-  { code: 'en', label: 'English', note: 'default' },
+  { code: 'en', label: 'English', note: 'langue de base' },
   { code: 'fr', label: 'Français' },
   { code: 'ar', label: 'العربية', dir: 'rtl' },
 ]

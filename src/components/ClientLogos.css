@@ -1,0 +1,107 @@
+.clients {
+  --logo-w: clamp(120px, 14vw, 170px);
+  --logo-h: clamp(44px, 5vw, 60px);
+  --logo-gap: clamp(32px, 5vw, 64px);
+
+  margin-top: clamp(48px, 8vh, 96px);
+  padding: clamp(28px, 5vh, 44px) 0;
+  overflow: hidden;
+  background: var(--muted-bg);
+  border-block: 1px solid var(--border);
+}
+
+/* The footer already has its own top margin; the strip sits right on top of it */
+.clients + .footer {
+  margin-top: 0;
+}
+
+.clients__title {
+  margin-bottom: clamp(20px, 3vh, 28px);
+  padding: 0 var(--gutter);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.clients__marquee {
+  max-width: var(--container);
+  margin: 0 auto;
+  overflow: hidden;
+  /* Fade the logos out at both edges */
+  -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  /* The track slides left in every language (Arabic included), so lay it out left to right */
+  direction: ltr;
+}
+
+.clients__track {
+  display: flex;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* ~2.5s per logo keeps the speed the same whatever the number of logos */
+  animation: clients-scroll calc(var(--n) * 2.5s) linear infinite;
+}
+
+.clients__marquee:hover .clients__track {
+  animation-play-state: paused;
+}
+
+/* Spacing is a margin (not flex gap) so both halves are exactly the same width */
+.clients__item {
+  flex: none;
+  width: var(--logo-w);
+  height: var(--logo-h);
+  margin-inline-end: var(--logo-gap);
+}
+
+/* Every logo fits inside the same box, whatever its proportions */
+.clients__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.65;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.clients__item:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+@keyframes clients-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reduced motion: no auto-scroll, just one row of logos that wraps */
+@media (prefers-reduced-motion: reduce) {
+  .clients__marquee {
+    -webkit-mask: none;
+    mask: none;
+  }
+
+  .clients__track {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px var(--logo-gap);
+    width: auto;
+    padding: 0 var(--gutter);
+    animation: none;
+  }
+
+  .clients__item {
+    margin: 0;
+  }
+
+  .clients__item[aria-hidden='true'] {
+    display: none;
+  }
+}

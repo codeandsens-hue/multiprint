@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api.js'
 
-const typeLabel = { order: 'Order', contact: 'Message' }
+const typeLabel = { order: 'Commande', contact: 'Message' }
 const fieldLabels = {
-  product: 'Product',
-  quantity: 'Quantity',
-  unit: 'Unit',
-  name: 'Name',
-  company: 'Company',
-  email: 'Email',
-  phone: 'Phone',
-  subject: 'Subject',
+  product: 'Produit',
+  quantity: 'Quantité',
+  unit: 'Unité',
+  name: 'Nom',
+  company: 'Entreprise',
+  email: 'E-mail',
+  phone: 'Téléphone',
+  subject: 'Objet',
   message: 'Message',
 }
 
 const formatDate = (iso) =>
-  new Date(`${iso.replace(' ', 'T')}Z`).toLocaleString('en-GB', {
+  new Date(`${iso.replace(' ', 'T')}Z`).toLocaleString('fr-FR', {
     day: 'numeric',
     month: 'short',
     hour: '2-digit',
@@ -47,7 +47,7 @@ function Requests() {
   }
 
   const remove = async (request) => {
-    if (!confirm(`Delete this ${typeLabel[request.type].toLowerCase()} from ${request.data.name}?`)) return
+    if (!confirm(`Supprimer ce${request.type === 'order' ? 'tte commande' : ' message'} de ${request.data.name} ?`)) return
     await api(`/admin/requests/${request.id}`, { method: 'DELETE' })
     setRequests((list) => list.filter((r) => r.id !== request.id))
   }
@@ -60,14 +60,14 @@ function Requests() {
     <>
       <header className="admin-page__header">
         <div>
-          <h1>Requests</h1>
-          <p>Orders and messages sent from the website forms.</p>
+          <h1>Demandes</h1>
+          <p>Commandes et messages envoyés depuis les formulaires du site.</p>
         </div>
-        <div className="segmented" role="group" aria-label="Filter">
+        <div className="segmented" role="group" aria-label="Filtre">
           {[
-            ['all', 'All'],
-            ['unread', 'Unread'],
-            ['order', 'Orders'],
+            ['all', 'Toutes'],
+            ['unread', 'Non lues'],
+            ['order', 'Commandes'],
             ['contact', 'Messages'],
           ].map(([id, label]) => (
             <button key={id} type="button" aria-pressed={filter === id} onClick={() => setFilter(id)}>
@@ -79,10 +79,10 @@ function Requests() {
 
       {error && <p className="admin-error">{error}</p>}
       {!requests ? (
-        <p className="panel__empty">Loading…</p>
+        <p className="panel__empty">Chargement…</p>
       ) : visible.length === 0 ? (
         <section className="panel">
-          <p className="panel__empty">No requests here yet.</p>
+          <p className="panel__empty">Aucune demande pour le moment.</p>
         </section>
       ) : (
         <ul className="requests">
@@ -131,16 +131,16 @@ function Requests() {
                     <a
                       className="btn btn--primary"
                       href={`mailto:${request.data.email}?subject=${encodeURIComponent(
-                        `Re: ${request.type === 'order' ? `your order – ${request.data.product}` : request.data.subject}`,
+                        `Re: ${request.type === 'order' ? `votre commande – ${request.data.product}` : request.data.subject}`,
                       )}`}
                     >
-                      Reply by email
+                      Répondre par e-mail
                     </a>
                     <button type="button" className="btn btn--outline" onClick={() => setRead(request, false)}>
-                      Mark as unread
+                      Marquer comme non lue
                     </button>
                     <button type="button" className="btn btn--danger" onClick={() => remove(request)}>
-                      Delete
+                      Supprimer
                     </button>
                   </div>
                 </div>
